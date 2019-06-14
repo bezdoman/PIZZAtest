@@ -114,6 +114,18 @@
     <Compile Include="Mapiranja\VelicinaPizzeMapiranja.cs" />
     <Compile Include="Mapiranja\VoziloMapiranja.cs" />
     <Compile Include="Mapiranja\ZaposleniMapiranja.cs" />
+    <Compile Include="NewEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewEmail.Designer.cs">
+      <DependentUpon>NewEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPhone.Designer.cs">
+      <DependentUpon>NewPhone.cs</DependentUpon>
+    </Compile>
     <Compile Include="NovaOsoba.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +151,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Isporuci.resx">
       <DependentUpon>Isporuci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewEmail.resx">
+      <DependentUpon>NewEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPhone.resx">
+      <DependentUpon>NewPhone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NovaOsoba.resx">
       <DependentUpon>NovaOsoba.cs</DependentUpon>

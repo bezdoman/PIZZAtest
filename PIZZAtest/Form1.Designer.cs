@@ -47,7 +47,7 @@
             this.btnPrimiPorudzbinu = new System.Windows.Forms.Button();
             this.btnIsporuci = new System.Windows.Forms.Button();
             this.btnUcesnik = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnNovaOsoba = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -243,14 +243,15 @@
             this.btnUcesnik.UseVisualStyleBackColor = true;
             this.btnUcesnik.Click += new System.EventHandler(this.btnUcesnik_Click);
             // 
-            // button10
+            // btnNovaOsoba
             // 
-            this.button10.Location = new System.Drawing.Point(595, 162);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(156, 23);
-            this.button10.TabIndex = 20;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnNovaOsoba.Location = new System.Drawing.Point(595, 162);
+            this.btnNovaOsoba.Name = "btnNovaOsoba";
+            this.btnNovaOsoba.Size = new System.Drawing.Size(156, 23);
+            this.btnNovaOsoba.TabIndex = 20;
+            this.btnNovaOsoba.Text = "Nova Osoba";
+            this.btnNovaOsoba.UseVisualStyleBackColor = true;
+            this.btnNovaOsoba.Click += new System.EventHandler(this.btnNovaOsoba_Click);
             // 
             // button11
             // 
@@ -288,7 +289,7 @@
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.btnNovaOsoba);
             this.Controls.Add(this.btnUcesnik);
             this.Controls.Add(this.btnIsporuci);
             this.Controls.Add(this.btnPrimiPorudzbinu);
@@ -335,7 +336,7 @@
         private System.Windows.Forms.Button btnPrimiPorudzbinu;
         private System.Windows.Forms.Button btnIsporuci;
         private System.Windows.Forms.Button btnUcesnik;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnNovaOsoba;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;

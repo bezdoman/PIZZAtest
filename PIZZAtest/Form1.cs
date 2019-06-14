@@ -53,7 +53,8 @@ namespace PIZZAtest
 
         
         
-        public void InsertUcesnik() {
+        public void InsertUcesnik()
+        {
             ISession s = DataLayer.GetSession();
             ITransaction t = s.BeginTransaction();
             Osoba o = s.Load<Osoba>(23);
@@ -534,6 +535,17 @@ namespace PIZZAtest
                     //Osoba osoba = s.Load<Osoba>(forma.broj);
                     //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
                     s.Close();
+                }
+            }
+        }
+
+        private void btnNovaOsoba_Click(object sender, EventArgs e)
+        {
+            using (NovaOsoba no=new NovaOsoba())
+            {
+                if (no.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("yay");
                 }
             }
         }

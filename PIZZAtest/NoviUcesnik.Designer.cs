@@ -54,7 +54,7 @@
             // 
             // btnNoviUcesnik
             // 
-            this.btnNoviUcesnik.Location = new System.Drawing.Point(255, 166);
+            this.btnNoviUcesnik.Location = new System.Drawing.Point(255, 40);
             this.btnNoviUcesnik.Name = "btnNoviUcesnik";
             this.btnNoviUcesnik.Size = new System.Drawing.Size(57, 23);
             this.btnNoviUcesnik.TabIndex = 2;
