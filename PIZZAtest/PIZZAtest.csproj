@@ -132,6 +132,12 @@
     <Compile Include="NoviZaposleni.Designer.cs">
       <DependentUpon>NoviZaposleni.cs</DependentUpon>
     </Compile>
+    <Compile Include="NovoVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovoVozilo.Designer.cs">
+      <DependentUpon>NovoVozilo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrimiPorudzbinu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NoviZaposleni.resx">
       <DependentUpon>NoviZaposleni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovoVozilo.resx">
+      <DependentUpon>NovoVozilo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrimiPorudzbinu.resx">
       <DependentUpon>PrimiPorudzbinu.cs</DependentUpon>
