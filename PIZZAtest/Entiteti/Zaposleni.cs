@@ -14,7 +14,7 @@ namespace PIZZAtest.Entiteti
         public virtual string Tip { get; set; }
         public virtual Osoba LicniBroj { get; set; }
         public virtual IList<RadiUSmeni> RadneNedelje { get; set; }
-        public virtual string Kategorija { get; set; }
+        
         public Zaposleni()
         {
             RadneNedelje = new List<RadiUSmeni>();
@@ -23,7 +23,7 @@ namespace PIZZAtest.Entiteti
     }
     public class Dostavljac : Zaposleni
     {
-        
+        public virtual string Kategorija { get; set; }
         public virtual IList<Vozilo> Vozila { get; set; }
         public virtual IList<IsporucenaPorudzbina> DostavljenePorudzbine { get; set; }
         

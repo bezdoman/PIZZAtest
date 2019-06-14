@@ -47,7 +47,7 @@
             this.btnPrimiPorudzbinu = new System.Windows.Forms.Button();
             this.btnIsporuci = new System.Windows.Forms.Button();
             this.btnUcesnik = new System.Windows.Forms.Button();
-            this.btnNovaOsoba = new System.Windows.Forms.Button();
+            this.btnNoviZaposleni = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -243,15 +243,15 @@
             this.btnUcesnik.UseVisualStyleBackColor = true;
             this.btnUcesnik.Click += new System.EventHandler(this.btnUcesnik_Click);
             // 
-            // btnNovaOsoba
+            // btnNoviZaposleni
             // 
-            this.btnNovaOsoba.Location = new System.Drawing.Point(595, 162);
-            this.btnNovaOsoba.Name = "btnNovaOsoba";
-            this.btnNovaOsoba.Size = new System.Drawing.Size(156, 23);
-            this.btnNovaOsoba.TabIndex = 20;
-            this.btnNovaOsoba.Text = "Nova Osoba";
-            this.btnNovaOsoba.UseVisualStyleBackColor = true;
-            this.btnNovaOsoba.Click += new System.EventHandler(this.btnNovaOsoba_Click);
+            this.btnNoviZaposleni.Location = new System.Drawing.Point(595, 162);
+            this.btnNoviZaposleni.Name = "btnNoviZaposleni";
+            this.btnNoviZaposleni.Size = new System.Drawing.Size(156, 23);
+            this.btnNoviZaposleni.TabIndex = 20;
+            this.btnNoviZaposleni.Text = "Novi Zaposleni";
+            this.btnNoviZaposleni.UseVisualStyleBackColor = true;
+            this.btnNoviZaposleni.Click += new System.EventHandler(this.btnNoviZaposleni_Click);
             // 
             // button11
             // 
@@ -289,7 +289,7 @@
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.btnNovaOsoba);
+            this.Controls.Add(this.btnNoviZaposleni);
             this.Controls.Add(this.btnUcesnik);
             this.Controls.Add(this.btnIsporuci);
             this.Controls.Add(this.btnPrimiPorudzbinu);
@@ -336,7 +336,7 @@
         private System.Windows.Forms.Button btnPrimiPorudzbinu;
         private System.Windows.Forms.Button btnIsporuci;
         private System.Windows.Forms.Button btnUcesnik;
-        private System.Windows.Forms.Button btnNovaOsoba;
+        private System.Windows.Forms.Button btnNoviZaposleni;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
