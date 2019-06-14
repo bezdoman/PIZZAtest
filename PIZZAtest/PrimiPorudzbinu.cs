@@ -17,6 +17,44 @@ namespace PIZZAtest
         public PrimiPorudzbinu()
         {
             InitializeComponent();
+
+            Start();
+
+            UcitajKupce();
+
+            UcitajOperatere();
+        }
+        private void UcitajOperatere() { }
+        private void Start() {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IList<Pizza> pizze = s.QueryOver<Pizza>()
+                                                //.Where(x => x.Stanje == "Neisporucena")
+                                                .List<Pizza>();
+
+                foreach (Pizza pizza in pizze)
+                {
+                    comboPizza.Items.Add(pizza);
+                }
+
+                IList<VelicinaPizze> velicine = s.QueryOver<VelicinaPizze>()
+                                                //.Where(x => x.Stanje == "Neisporucena")
+                                                .List<VelicinaPizze>();
+
+                foreach (VelicinaPizze velicina in velicine)
+                {
+                    comboVelicina.Items.Add(velicina);
+                }
+
+                s.Close();
+
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
         }
         private void UcitajKupce()
         {
@@ -30,7 +68,7 @@ namespace PIZZAtest
 
                 foreach (Kupac kupac in kupci)
                 {
-                    listBox1.Items.Add(kupac);
+                    listKupac.Items.Add(kupac);
                 }
 
                 s.Close();
@@ -56,8 +94,30 @@ namespace PIZZAtest
                     s.Save(kupac);
                     //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
                     s.Close();
+
+                    UcitajKupce();
                 }
             }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PrimiPorudzbinu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
