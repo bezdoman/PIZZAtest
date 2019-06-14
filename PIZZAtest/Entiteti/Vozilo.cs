@@ -20,6 +20,11 @@ namespace PIZZAtest.Entiteti
         {
             Porudzbine=new List<IsporucenaPorudzbina>();
         }
+
+        public override string ToString()
+        {
+            return Idv.ToString() + " " + Tip + " " + Proizvodjac + " " + Model;
+        }
     }
     public class Bicikl : Vozilo
     {

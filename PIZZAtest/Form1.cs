@@ -19,26 +19,36 @@ namespace PIZZAtest
         {
             InitializeComponent();
         }
+        private void UcitajNeisporucene() {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IList<NeisporucenaPorudzbina> porudzbine = s.QueryOver<NeisporucenaPorudzbina>()
+                                                //.Where(x => x.Stanje == "Neisporucena")
+                                                .List<NeisporucenaPorudzbina>();
+                IList<NeisporucenaPorudzbina> porudzbine2 = porudzbine;
+
+                foreach (NeisporucenaPorudzbina np in porudzbine2)
+                {
+                    MessageBox.Show(np.Idp.ToString());
+                }
+
+                s.Close();
+
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+        private void Isporuci(NeisporucenaPorudzbina np) { }
+       // private void DodajBodove() { }
+        private void NoviUcesnik(Kupac kupac) { }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ISession s = DataLayer.GetSession();
-            ITransaction t = s.BeginTransaction();
-            NeisporucenaPorudzbina np = s.Load<NeisporucenaPorudzbina>(3);
-            Pizza p = s.Load<Pizza>("Vegetarijana");
-            VelicinaPizze vp = s.Load<VelicinaPizze>("Parce");
-
-            Sadrzi sadrzaj = new Sadrzi()
-            {
-                PorudzbinaId = np,
-                PizzaId = p,
-                VelicinaId = vp
-            };
-            s.Save(sadrzaj);
-            t.Commit();
-
-            s.Close();
-            MessageBox.Show("kraj");
+            //MessageBox.Show("start");
         }
 
         
@@ -475,6 +485,57 @@ namespace PIZZAtest
             }
 
             catch (Exception exc) { MessageBox.Show(exc.Message); }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            UcitajNeisporucene();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {    
+        }
+
+        private void btnPrimiPorudzbinu_Click(object sender, EventArgs e)
+        {
+            using (PrimiPorudzbinu forma = new PrimiPorudzbinu())
+            {
+                if (forma.ShowDialog() == DialogResult.OK)
+                {
+                    ISession s = DataLayer.GetSession();
+                    //Osoba osoba = s.Load<Osoba>(forma.broj);
+                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
+                    s.Close();
+                }
+            }
+        }
+
+        private void btnIsporuci_Click(object sender, EventArgs e)
+        {
+            using (Isporuci forma = new Isporuci())
+            {
+                if (forma.ShowDialog() == DialogResult.OK)
+                {
+                    ISession s = DataLayer.GetSession();
+                    //Osoba osoba = s.Load<Osoba>(forma.broj);
+                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
+                    s.Close();
+                }
+            }
+        }
+
+        private void btnUcesnik_Click(object sender, EventArgs e)
+        {
+            using (NoviUcesnik forma = new NoviUcesnik())
+            {
+                if (forma.ShowDialog() == DialogResult.OK)
+                {
+                    ISession s = DataLayer.GetSession();
+                    //Osoba osoba = s.Load<Osoba>(forma.broj);
+                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
+                    s.Close();
+                }
+            }
         }
     }
 }

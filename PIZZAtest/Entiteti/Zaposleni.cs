@@ -33,6 +33,11 @@ namespace PIZZAtest.Entiteti
             Vozila = new List<Vozilo>();
             DostavljenePorudzbine = new List<IsporucenaPorudzbina>();
         }
+
+        public override string ToString()
+        {
+            return Id.ToString() + " " + JMBG.ToString() + " " + Kategorija + " " + Tip;
+        }
     }
     public class Operater : Zaposleni
     {

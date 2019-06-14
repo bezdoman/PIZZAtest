@@ -16,7 +16,10 @@ namespace PIZZAtest.Entiteti
         public virtual string NacinPlacanja { get; set; }
         public virtual IList<Sadrzi> Sadrzaj { get; set; }
 
-        
+        public override string ToString()
+        {
+            return Idp.ToString()+" "+DatumVremeKreiranja.ToShortDateString() + " " + IdKupca.Id.ToString() + " " + Stanje;
+        }
         public Porudzbina()
         {
             Sadrzaj = new List<Sadrzi>();

@@ -94,6 +94,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Isporuci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Isporuci.Designer.cs">
+      <DependentUpon>Isporuci.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mapiranja\DodaciMapiranja.cs" />
     <Compile Include="Mapiranja\EmailMapiranja.cs" />
     <Compile Include="Mapiranja\KupacMapiranja.cs" />
@@ -108,10 +114,40 @@
     <Compile Include="Mapiranja\VelicinaPizzeMapiranja.cs" />
     <Compile Include="Mapiranja\VoziloMapiranja.cs" />
     <Compile Include="Mapiranja\ZaposleniMapiranja.cs" />
+    <Compile Include="NovaOsoba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovaOsoba.Designer.cs">
+      <DependentUpon>NovaOsoba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoviUcesnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoviUcesnik.Designer.cs">
+      <DependentUpon>NoviUcesnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrimiPorudzbinu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrimiPorudzbinu.Designer.cs">
+      <DependentUpon>PrimiPorudzbinu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Isporuci.resx">
+      <DependentUpon>Isporuci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovaOsoba.resx">
+      <DependentUpon>NovaOsoba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoviUcesnik.resx">
+      <DependentUpon>NoviUcesnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrimiPorudzbinu.resx">
+      <DependentUpon>PrimiPorudzbinu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

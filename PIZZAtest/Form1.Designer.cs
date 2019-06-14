@@ -42,6 +42,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnPrimiPorudzbinu = new System.Windows.Forms.Button();
+            this.btnIsporuci = new System.Windows.Forms.Button();
+            this.btnUcesnik = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InsertOsoba
@@ -184,12 +193,107 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(284, 59);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(303, 192);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // btnPrimiPorudzbinu
+            // 
+            this.btnPrimiPorudzbinu.Location = new System.Drawing.Point(595, 32);
+            this.btnPrimiPorudzbinu.Name = "btnPrimiPorudzbinu";
+            this.btnPrimiPorudzbinu.Size = new System.Drawing.Size(156, 23);
+            this.btnPrimiPorudzbinu.TabIndex = 17;
+            this.btnPrimiPorudzbinu.Text = "Primi Porudzbinu";
+            this.btnPrimiPorudzbinu.UseVisualStyleBackColor = true;
+            this.btnPrimiPorudzbinu.Click += new System.EventHandler(this.btnPrimiPorudzbinu_Click);
+            // 
+            // btnIsporuci
+            // 
+            this.btnIsporuci.Location = new System.Drawing.Point(595, 75);
+            this.btnIsporuci.Name = "btnIsporuci";
+            this.btnIsporuci.Size = new System.Drawing.Size(156, 23);
+            this.btnIsporuci.TabIndex = 18;
+            this.btnIsporuci.Text = "Isporuci Porudzbinu";
+            this.btnIsporuci.UseVisualStyleBackColor = true;
+            this.btnIsporuci.Click += new System.EventHandler(this.btnIsporuci_Click);
+            // 
+            // btnUcesnik
+            // 
+            this.btnUcesnik.Location = new System.Drawing.Point(595, 118);
+            this.btnUcesnik.Name = "btnUcesnik";
+            this.btnUcesnik.Size = new System.Drawing.Size(156, 23);
+            this.btnUcesnik.TabIndex = 19;
+            this.btnUcesnik.Text = "Novi Ucesnik";
+            this.btnUcesnik.UseVisualStyleBackColor = true;
+            this.btnUcesnik.Click += new System.EventHandler(this.btnUcesnik_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(595, 162);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(156, 23);
+            this.button10.TabIndex = 20;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(595, 207);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(156, 23);
+            this.button11.TabIndex = 21;
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(595, 254);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(156, 23);
+            this.button12.TabIndex = 22;
+            this.button12.Text = "button12";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(595, 299);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(156, 23);
+            this.button13.TabIndex = 23;
+            this.button13.Text = "button13";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(334, 312);
+            this.ClientSize = new System.Drawing.Size(908, 385);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.button12);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.btnUcesnik);
+            this.Controls.Add(this.btnIsporuci);
+            this.Controls.Add(this.btnPrimiPorudzbinu);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -226,6 +330,15 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnPrimiPorudzbinu;
+        private System.Windows.Forms.Button btnIsporuci;
+        private System.Windows.Forms.Button btnUcesnik;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
 
