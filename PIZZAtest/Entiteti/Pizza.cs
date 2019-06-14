@@ -11,12 +11,6 @@ namespace PIZZAtest.Entiteti
         public virtual int Cena { get; set; }
         public virtual IList<Sadrzi> Narucene { get; set; }
         public virtual IList<Dodaci> Sastojci { get; set; }
-
-        public override string ToString()
-        {
-            return Naziv;
-        }
-
         public Pizza()
         {
             Narucene = new List<Sadrzi>();

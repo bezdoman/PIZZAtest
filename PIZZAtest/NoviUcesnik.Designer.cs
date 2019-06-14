@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listKupac = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNoviUcesnik = new System.Windows.Forms.Button();
-            this.listUcesnik = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listKupac
+            // listBox1
             // 
-            this.listKupac.FormattingEnabled = true;
-            this.listKupac.Location = new System.Drawing.Point(23, 40);
-            this.listKupac.Name = "listKupac";
-            this.listKupac.Size = new System.Drawing.Size(205, 290);
-            this.listKupac.TabIndex = 0;
-            this.listKupac.SelectedIndexChanged += new System.EventHandler(this.listKupac_SelectedIndexChanged);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(23, 40);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(205, 290);
+            this.listBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -55,7 +54,7 @@
             // 
             // btnNoviUcesnik
             // 
-            this.btnNoviUcesnik.Location = new System.Drawing.Point(255, 166);
+            this.btnNoviUcesnik.Location = new System.Drawing.Point(255, 40);
             this.btnNoviUcesnik.Name = "btnNoviUcesnik";
             this.btnNoviUcesnik.Size = new System.Drawing.Size(57, 23);
             this.btnNoviUcesnik.TabIndex = 2;
@@ -63,13 +62,13 @@
             this.btnNoviUcesnik.UseVisualStyleBackColor = true;
             this.btnNoviUcesnik.Click += new System.EventHandler(this.btnNoviUcesnik_Click);
             // 
-            // listUcesnik
+            // listBox2
             // 
-            this.listUcesnik.FormattingEnabled = true;
-            this.listUcesnik.Location = new System.Drawing.Point(342, 40);
-            this.listUcesnik.Name = "listUcesnik";
-            this.listUcesnik.Size = new System.Drawing.Size(205, 290);
-            this.listUcesnik.TabIndex = 3;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(342, 40);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(205, 290);
+            this.listBox2.TabIndex = 3;
             // 
             // label2
             // 
@@ -86,13 +85,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 357);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listUcesnik);
+            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.btnNoviUcesnik);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listKupac);
+            this.Controls.Add(this.listBox1);
             this.Name = "NoviUcesnik";
             this.Text = "NoviUcesnik";
-            this.Load += new System.EventHandler(this.NoviUcesnik_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,10 +98,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listKupac;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNoviUcesnik;
-        private System.Windows.Forms.ListBox listUcesnik;
+        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label2;
     }
 }

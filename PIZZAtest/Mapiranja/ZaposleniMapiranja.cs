@@ -22,7 +22,7 @@ namespace PIZZAtest.Mapiranja
             Map(x => x.JMBG, "JMBG");
             Map(x => x.DatumRodjenja, "DATUM_RODJENJA");
            // Map(x => x.Tip, "TIP_ZAPOSLENOG");
-           
+            Map(x => x.Kategorija, "KATEGORIJA");
             //Zaposleni-Osoba 1:1
             References(x => x.LicniBroj).Column("LICNI_BROJ").LazyLoad();
                                 //Zaposleni-RadiUSmeni 1:N
@@ -35,9 +35,7 @@ namespace PIZZAtest.Mapiranja
             public DostavljacMapiranja()
             {
                 DiscriminatorValue("Dostavljac");
-
-                Map(x => x.Kategorija, "KATEGORIJA");
-                //Dostavljac-Vozilo 1:N
+                                        //Dostavljac-Vozilo 1:N
                 HasMany(x => x.Vozila).KeyColumn("ID_ZAPOSLENI").LazyLoad().Cascade.All().Inverse();
                                         //Dostavljac-Porudzbina 1:N
                 HasMany(x => x.DostavljenePorudzbine).KeyColumn("ID_DOSTAVLJAC").LazyLoad().Cascade.All().Inverse();

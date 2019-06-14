@@ -48,10 +48,7 @@ namespace PIZZAtest
                 ISession s = DataLayer.GetSession();
 
                 IList<Dostavljac> dostavljaci = s.QueryOver<Dostavljac>()
-                                                //.Where(x=>x.Kategorija=="B")
                                                 .List<Dostavljac>();
-
-                
 
                 foreach (Dostavljac dostavljac in dostavljaci)
                 {
