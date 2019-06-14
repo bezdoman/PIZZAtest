@@ -549,5 +549,16 @@ namespace PIZZAtest
                 }
             }
         }
+
+        private void btnNovaPizza_Click(object sender, EventArgs e)
+        {
+            using (NovaPizza np=new NovaPizza())
+            {
+                if (np.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Yay");
+                }
+            }
+        }
     }
 }
