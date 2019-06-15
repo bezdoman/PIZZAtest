@@ -50,7 +50,7 @@
             this.btnNovaOsoba = new System.Windows.Forms.Button();
             this.btnNovaPizza = new System.Windows.Forms.Button();
             this.btnNoviZaposleni = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.buttonNovoVozilo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InsertOsoba
@@ -274,14 +274,15 @@
             this.btnNoviZaposleni.UseVisualStyleBackColor = true;
             this.btnNoviZaposleni.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button13
+            // buttonNovoVozilo
             // 
-            this.button13.Location = new System.Drawing.Point(595, 299);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(156, 23);
-            this.button13.TabIndex = 23;
-            this.button13.Text = "button13";
-            this.button13.UseVisualStyleBackColor = true;
+            this.buttonNovoVozilo.Location = new System.Drawing.Point(595, 294);
+            this.buttonNovoVozilo.Name = "buttonNovoVozilo";
+            this.buttonNovoVozilo.Size = new System.Drawing.Size(156, 23);
+            this.buttonNovoVozilo.TabIndex = 23;
+            this.buttonNovoVozilo.Text = "Novo vozilo";
+            this.buttonNovoVozilo.UseVisualStyleBackColor = true;
+            this.buttonNovoVozilo.Click += new System.EventHandler(this.button13_Click);
             // 
             // Form1
             // 
@@ -289,7 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(908, 385);
-            this.Controls.Add(this.button13);
+            this.Controls.Add(this.buttonNovoVozilo);
             this.Controls.Add(this.btnNoviZaposleni);
             this.Controls.Add(this.btnNovaPizza);
             this.Controls.Add(this.btnNovaOsoba);
@@ -342,7 +343,7 @@
         private System.Windows.Forms.Button btnNovaOsoba;
         private System.Windows.Forms.Button btnNovaPizza;
         private System.Windows.Forms.Button btnNoviZaposleni;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button buttonNovoVozilo;
     }
 }
 

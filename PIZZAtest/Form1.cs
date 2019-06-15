@@ -571,5 +571,17 @@ namespace PIZZAtest
                 }
             }
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            using (NovoVozilo np = new NovoVozilo())
+            {
+                if (np.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Yay");
+                }
+            }
+        }
     }
+    
 }
