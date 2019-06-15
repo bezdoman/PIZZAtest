@@ -35,7 +35,7 @@ namespace PIZZAtest.Mapiranja
             public DostavljacMapiranja()
             {
                 DiscriminatorValue("Dostavljac");
-
+                
                 Map(x => x.Kategorija, "KATEGORIJA");
                 //Dostavljac-Vozilo 1:N
                 HasMany(x => x.Vozila).KeyColumn("ID_ZAPOSLENI").LazyLoad().Cascade.All().Inverse();

@@ -88,7 +88,7 @@ namespace PIZZAtest
                     ISession s = DataLayer.GetSession();
                     Osoba osoba = s.Load<Osoba>(forma.broj);
                     Kupac kupac = new Kupac() { };
-                    kupac.SakupljeniBodovi = 0;
+                 //   kupac.SakupljeniBodovi = 0;
                     kupac.DatumPrvePorudzbine = DateTime.Now;
                     kupac.LicniBroj = osoba;
                     s.Save(kupac);

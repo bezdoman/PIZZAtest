@@ -20,7 +20,7 @@ namespace PIZZAtest.Mapiranja
 
             //mapiranje svojstava
             Map(x => x.DatumPrvePorudzbine, "DATUM_PRVE_PORUDZBINE");
-            Map(x => x.Flag, "UCESNIK_FLAG");
+          //  Map(x => x.Flag, "UCESNIK_FLAG");
 
             References(x => x.LicniBroj).Column("LICNI_BROJ").LazyLoad();
 

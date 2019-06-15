@@ -1,6 +1,4 @@
-﻿using NHibernate;
-using PIZZAtest.Entiteti;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NHibernate;
+using PIZZAtest.Entiteti;
 
 namespace PIZZAtest
 {
