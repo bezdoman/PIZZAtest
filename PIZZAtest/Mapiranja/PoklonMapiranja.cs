@@ -16,7 +16,7 @@ namespace PIZZAtest.Mapiranja
 
             DiscriminateSubClassesOnColumn("TIP");
 
-            Id(x => x.Id, "BROJ").GeneratedBy.Sequence("S16107.POKLON_ID_SEQ");
+            Id(x => x.Id, "BROJ").GeneratedBy.TriggerIdentity();
             
             //mapiranje svojstava
             Map(x => x.Bodovi, "BODOVI");
