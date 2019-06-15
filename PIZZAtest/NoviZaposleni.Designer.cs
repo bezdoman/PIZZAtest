@@ -208,15 +208,15 @@
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(139, 120);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
+            999999999,
+            0,
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
             this.numericUpDown1.TabIndex = 11;
             this.numericUpDown1.Value = new decimal(new int[] {
-            1000000000,
+            999999999,
             0,
             0,
             0});

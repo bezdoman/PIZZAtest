@@ -25,6 +25,13 @@ namespace PIZZAtest
 
         private void btnDodatak_Click(object sender, EventArgs e)
         {
+            foreach (string dodatak in dodaci)
+            {
+                if (txtDodatak.Text == dodatak)
+                {
+                    return;
+                }
+            }
             dodaci.Add(txtDodatak.Text);
         }
 

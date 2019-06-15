@@ -153,6 +153,11 @@
             // numUDBroj
             // 
             this.numUDBroj.Location = new System.Drawing.Point(117, 86);
+            this.numUDBroj.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numUDBroj.Name = "numUDBroj";
             this.numUDBroj.Size = new System.Drawing.Size(100, 20);
             this.numUDBroj.TabIndex = 13;

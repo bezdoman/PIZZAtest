@@ -518,10 +518,7 @@ namespace PIZZAtest
             {
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    ISession s = DataLayer.GetSession();
-                    //Osoba osoba = s.Load<Osoba>(forma.broj);
-                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
-                    s.Close();
+                    MessageBox.Show("Porudzbina primljena");
                 }
             }
         }
@@ -532,10 +529,7 @@ namespace PIZZAtest
             {
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    ISession s = DataLayer.GetSession();
-                    //Osoba osoba = s.Load<Osoba>(forma.broj);
-                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
-                    s.Close();
+                    MessageBox.Show("Porudzbina isporucena");
                 }
             }
         }
@@ -546,23 +540,13 @@ namespace PIZZAtest
             {
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    ISession s = DataLayer.GetSession();
-                    //Osoba osoba = s.Load<Osoba>(forma.broj);
-                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
-                    s.Close();
                 }
             }
         }
 
         private void btnNovaOsoba_Click(object sender, EventArgs e)
         {
-            using (NoviZaposleni no=new NoviZaposleni())
-            {
-                if (no.ShowDialog() == DialogResult.OK)
-                {
-                    
-                }
-            }
+            
         }
 
         private void btnNovaPizza_Click(object sender, EventArgs e)
@@ -571,7 +555,7 @@ namespace PIZZAtest
             {
                 if (np.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Yay");
+                    MessageBox.Show("Pizza sacuvana");
                 }
             }
         }
@@ -582,7 +566,7 @@ namespace PIZZAtest
             {
                 if (np.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Yay");
+                    MessageBox.Show("Novi zaposleni sacuvan");
                 }
             }
         }
@@ -593,7 +577,18 @@ namespace PIZZAtest
             {
                 if (np.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Yay");
+                    MessageBox.Show("Novo vozilo sacuvano");
+                }
+            }
+        }
+
+        private void btnNoviPoklon_Click(object sender, EventArgs e)
+        {
+            using (NoviPoklon np = new NoviPoklon())
+            {
+                if (np.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Poklon dodeljen");
                 }
             }
         }

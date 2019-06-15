@@ -135,6 +135,12 @@ namespace PIZZAtest
                 VelicinaId = (VelicinaPizze)comboVelicina.SelectedItem,
                 PizzaId = (Pizza)comboPizza.SelectedItem
             };
+            foreach (Sadrzi sadrzaj in listSadrzaj.Items)
+            {
+                if (s.VelicinaId == sadrzaj.VelicinaId && s.PizzaId == sadrzaj.PizzaId)
+                    return;
+
+            }
             sadrzi.Add(s);
         }
 

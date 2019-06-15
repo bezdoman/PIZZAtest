@@ -138,6 +138,12 @@
     <Compile Include="NovaPizza.Designer.cs">
       <DependentUpon>NovaPizza.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoviPoklon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoviPoklon.Designer.cs">
+      <DependentUpon>NoviPoklon.cs</DependentUpon>
+    </Compile>
     <Compile Include="NoviUcesnik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NovaPizza.resx">
       <DependentUpon>NovaPizza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoviPoklon.resx">
+      <DependentUpon>NoviPoklon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NoviUcesnik.resx">
       <DependentUpon>NoviUcesnik.cs</DependentUpon>

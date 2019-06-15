@@ -180,9 +180,9 @@
             // btnPrimiPorudzibnu
             // 
             this.btnPrimiPorudzibnu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrimiPorudzibnu.Location = new System.Drawing.Point(155, 385);
+            this.btnPrimiPorudzibnu.Location = new System.Drawing.Point(202, 459);
             this.btnPrimiPorudzibnu.Name = "btnPrimiPorudzibnu";
-            this.btnPrimiPorudzibnu.Size = new System.Drawing.Size(346, 80);
+            this.btnPrimiPorudzibnu.Size = new System.Drawing.Size(242, 44);
             this.btnPrimiPorudzibnu.TabIndex = 10;
             this.btnPrimiPorudzibnu.Text = "Primi Porudzbinu";
             this.btnPrimiPorudzibnu.UseVisualStyleBackColor = true;

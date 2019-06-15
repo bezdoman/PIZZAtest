@@ -52,6 +52,7 @@
             this.btnNoviZaposleni = new System.Windows.Forms.Button();
             this.buttonNovoVozilo = new System.Windows.Forms.Button();
             this.groupIIdeo = new System.Windows.Forms.GroupBox();
+            this.btnNoviPoklon = new System.Windows.Forms.Button();
             this.groupIIdeo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -311,12 +312,23 @@
             this.groupIIdeo.TabStop = false;
             this.groupIIdeo.Text = "IIdeo";
             // 
+            // btnNoviPoklon
+            // 
+            this.btnNoviPoklon.Location = new System.Drawing.Point(57, 361);
+            this.btnNoviPoklon.Name = "btnNoviPoklon";
+            this.btnNoviPoklon.Size = new System.Drawing.Size(156, 23);
+            this.btnNoviPoklon.TabIndex = 25;
+            this.btnNoviPoklon.Text = "Dodeli Poklon";
+            this.btnNoviPoklon.UseVisualStyleBackColor = true;
+            this.btnNoviPoklon.Click += new System.EventHandler(this.btnNoviPoklon_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(277, 415);
+            this.Controls.Add(this.btnNoviPoklon);
             this.Controls.Add(this.groupIIdeo);
             this.Controls.Add(this.buttonNovoVozilo);
             this.Controls.Add(this.btnNoviZaposleni);
@@ -358,6 +370,7 @@
         private System.Windows.Forms.Button btnNoviZaposleni;
         private System.Windows.Forms.Button buttonNovoVozilo;
         private System.Windows.Forms.GroupBox groupIIdeo;
+        private System.Windows.Forms.Button btnNoviPoklon;
     }
 }
 
