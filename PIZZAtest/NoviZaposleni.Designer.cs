@@ -37,15 +37,15 @@
             this.comboKategorija = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupDostavljac = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listJezici = new System.Windows.Forms.ListBox();
             this.groupOperater = new System.Windows.Forms.GroupBox();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.textJezik = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboNivo = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnDodaj = new System.Windows.Forms.Button();
+            this.btnPotvrdi = new System.Windows.Forms.Button();
             this.groupDostavljac.SuspendLayout();
             this.groupOperater.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -137,20 +137,21 @@
             this.groupDostavljac.TabIndex = 8;
             this.groupDostavljac.TabStop = false;
             // 
-            // listBox1
+            // listJezici
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(85, 95);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 9;
+            this.listJezici.FormattingEnabled = true;
+            this.listJezici.Location = new System.Drawing.Point(85, 95);
+            this.listJezici.Name = "listJezici";
+            this.listJezici.Size = new System.Drawing.Size(120, 95);
+            this.listJezici.TabIndex = 9;
+            this.listJezici.SelectedIndexChanged += new System.EventHandler(this.listJezici_SelectedIndexChanged);
             // 
             // groupOperater
             // 
             this.groupOperater.Controls.Add(this.btnDodaj);
-            this.groupOperater.Controls.Add(this.textBox2);
+            this.groupOperater.Controls.Add(this.textJezik);
             this.groupOperater.Controls.Add(this.label5);
-            this.groupOperater.Controls.Add(this.listBox1);
+            this.groupOperater.Controls.Add(this.listJezici);
             this.groupOperater.Controls.Add(this.label4);
             this.groupOperater.Controls.Add(this.comboNivo);
             this.groupOperater.Location = new System.Drawing.Point(8, 210);
@@ -158,6 +159,32 @@
             this.groupOperater.Size = new System.Drawing.Size(222, 213);
             this.groupOperater.TabIndex = 10;
             this.groupOperater.TabStop = false;
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(8, 95);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(71, 23);
+            this.btnDodaj.TabIndex = 12;
+            this.btnDodaj.Text = "Dodaj -->";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            // 
+            // textJezik
+            // 
+            this.textJezik.Location = new System.Drawing.Point(84, 12);
+            this.textJezik.Name = "textJezik";
+            this.textJezik.Size = new System.Drawing.Size(121, 20);
+            this.textJezik.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Jezik:";
             // 
             // label4
             // 
@@ -177,54 +204,44 @@
             this.comboNivo.Size = new System.Drawing.Size(121, 21);
             this.comboNivo.TabIndex = 6;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Jezik:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(84, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 11;
-            // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(139, 120);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
             this.numericUpDown1.TabIndex = 11;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             // 
-            // button1
+            // btnPotvrdi
             // 
-            this.button1.Location = new System.Drawing.Point(148, 429);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 46);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "POTVRDI";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(8, 95);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(71, 23);
-            this.btnDodaj.TabIndex = 12;
-            this.btnDodaj.Text = "Dodaj -->";
-            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnPotvrdi.Location = new System.Drawing.Point(148, 429);
+            this.btnPotvrdi.Name = "btnPotvrdi";
+            this.btnPotvrdi.Size = new System.Drawing.Size(148, 46);
+            this.btnPotvrdi.TabIndex = 12;
+            this.btnPotvrdi.Text = "POTVRDI";
+            this.btnPotvrdi.UseVisualStyleBackColor = true;
+            this.btnPotvrdi.Click += new System.EventHandler(this.button1_Click);
             // 
             // NoviZaposleni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 487);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPotvrdi);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.groupOperater);
             this.Controls.Add(this.radioDostavljac);
@@ -258,14 +275,14 @@
         private System.Windows.Forms.ComboBox comboKategorija;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupDostavljac;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listJezici;
         private System.Windows.Forms.GroupBox groupOperater;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboNivo;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textJezik;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPotvrdi;
         private System.Windows.Forms.Button btnDodaj;
     }
 }

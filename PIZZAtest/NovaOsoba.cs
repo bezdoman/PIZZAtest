@@ -14,7 +14,7 @@ namespace PIZZAtest
 {
     public partial class NovaOsoba : Form
     {
-        public int broj = 1;
+        public int broj;
         public BindingList<string> Emailovi;
         public BindingList<string> Telefoni;
         public NovaOsoba()
@@ -24,6 +24,7 @@ namespace PIZZAtest
             Telefoni=new BindingList<string>();
             listBoxEmail.DataSource = Emailovi;
             listBoxTelefoni.DataSource = Telefoni;
+            broj = -1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,6 +66,7 @@ namespace PIZZAtest
                         s.Save(tel);
                         o.Telefoni.Add(tel);
                     }
+                    broj = o.Id;
                     t.Commit();
                     s.Close();
                     MessageBox.Show("kraj");
@@ -73,6 +75,7 @@ namespace PIZZAtest
                 {
                     MessageBox.Show(ec.Message);
                 }
+                
                 DialogResult = DialogResult.OK;
                 this.Close();
             }

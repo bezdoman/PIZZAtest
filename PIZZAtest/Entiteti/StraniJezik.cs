@@ -12,6 +12,10 @@ namespace PIZZAtest.Entiteti
         public virtual string Jezik { get; set; }
         public virtual string Nivo { get; set; }
 
+        public override string ToString()
+        {
+            return Jezik+ "     "+Nivo;
+        }
         public override bool Equals(object obj)
         {
             if (Object.ReferenceEquals(this, obj))

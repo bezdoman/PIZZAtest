@@ -14,6 +14,8 @@ namespace PIZZAtest
 {
     public partial class NoviZaposleni : Form
     {
+        public List<StraniJezik> jezici;
+        int broj;
         public NoviZaposleni()
         {
             InitializeComponent();
@@ -53,6 +55,8 @@ namespace PIZZAtest
             groupDostavljac.Enabled = false;
             groupOperater.Enabled = false;
 
+            broj = -1;
+
         }
 
         private void btnNovaOsoba_Click(object sender, EventArgs e)
@@ -61,10 +65,7 @@ namespace PIZZAtest
             {
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    ISession s = DataLayer.GetSession();
-                    Osoba osoba = s.Load<Osoba>(forma.broj);
-                   
-                    s.Close();
+                    broj = forma.broj;
                 }
             }
         }
@@ -90,6 +91,72 @@ namespace PIZZAtest
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            if (broj != -1)
+            {
+                ISession sesija = DataLayer.GetSession();
+                ITransaction transakcija = sesija.BeginTransaction();
+                Osoba osoba = sesija.Load<Osoba>(broj);
+                if (radioOperater.Checked)
+                {
+                    Operater operater = new Operater()
+                    {
+                        LicniBroj = osoba,
+                        DatumRodjenja = dateTimePicker1.Value,
+                        JMBG = (int)numericUpDown1.Value
+                    };
+                    sesija.Save(operater);
+                    foreach (StraniJezik jezik in listJezici.Items)
+                    {
+                        jezik.ZaposleniId = operater;
+                        sesija.Save(jezik);
+                        operater.Jezici.Add(jezik);
+                    }
+                    transakcija.Commit();
+                }
+                else
+                {
+                    if (comboKategorija.SelectedIndex != -1)
+                    {
+                        Dostavljac dostavljac = new Dostavljac()
+                        {
+                            LicniBroj = osoba,
+                            DatumRodjenja = dateTimePicker1.Value,
+                            JMBG = (int)numericUpDown1.Value,
+                            Kategorija = (string)comboKategorija.SelectedValue
+                        };
+                        sesija.Save(dostavljac);
+                        transakcija.Commit();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Izaberite kategoriju");
+                    }
+                }
+                sesija.Close();
+            }
+            else {
+                MessageBox.Show("Unesite licne podatke");
+            }
+            DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            if (textJezik.Text != "" && comboNivo.SelectedIndex > -1)
+            {
+                StraniJezik jezik = new StraniJezik();
+                jezik.Jezik = textJezik.Text;
+                jezik.Nivo = comboNivo.SelectedItem.ToString();
+                listJezici.Items.Add(jezik);
+            }
+            else {
+                MessageBox.Show("Popunite jezik i izaberite nivo");
+            }
+        }
+
+        private void listJezici_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -541,11 +541,11 @@ namespace PIZZAtest
 
         private void btnNovaOsoba_Click(object sender, EventArgs e)
         {
-            using (NovaOsoba no=new NovaOsoba())
+            using (NoviZaposleni no=new NoviZaposleni())
             {
                 if (no.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("yay");
+                    
                 }
             }
         }
@@ -553,6 +553,17 @@ namespace PIZZAtest
         private void btnNovaPizza_Click(object sender, EventArgs e)
         {
             using (NovaPizza np=new NovaPizza())
+            {
+                if (np.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Yay");
+                }
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            using (NoviZaposleni np = new NoviZaposleni())
             {
                 if (np.ShowDialog() == DialogResult.OK)
                 {

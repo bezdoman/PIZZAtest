@@ -50,11 +50,15 @@ namespace PIZZAtest
 
         private void radioButtonBicikl_CheckedChanged(object sender, EventArgs e)
         {
-            listBoxZaposleni.Items.Clear();
-            groupBoxBickl.Visible = true;
-            IList<Dostavljac> dostavljac = ucitajZaposlene("bicikl");
-            foreach (Dostavljac d in dostavljac) {
-                listBoxZaposleni.Items.Add(d);
+            if (radioButtonBicikl.Checked)
+            {
+                listBoxZaposleni.Items.Clear();
+                groupBoxBickl.Visible = true;
+                IList<Dostavljac> dostavljac = ucitajZaposlene("bicikl");
+                foreach (Dostavljac d in dostavljac)
+                {
+                    listBoxZaposleni.Items.Add(d);
+                }
             }
         }
 
@@ -65,23 +69,29 @@ namespace PIZZAtest
 
         private void radioButtonSkuter_CheckedChanged(object sender, EventArgs e)
         {
-            listBoxZaposleni.Items.Clear();
-            groupBoxSkuAut.Visible = true;
-            IList<Dostavljac> dostavljac = ucitajZaposlene("C");
-            foreach (Dostavljac d in dostavljac)
+            if (radioButtonSkuter.Checked)
             {
-                listBoxZaposleni.Items.Add(d);
+                listBoxZaposleni.Items.Clear();
+                groupBoxSkuAut.Visible = true;
+                IList<Dostavljac> dostavljac = ucitajZaposlene("C");
+                foreach (Dostavljac d in dostavljac)
+                {
+                    listBoxZaposleni.Items.Add(d);
+                }
             }
         }
 
         private void radioButtonAutomobil_CheckedChanged(object sender, EventArgs e)
         {
-            listBoxZaposleni.Items.Clear();
-            groupBoxSkuAut.Visible = true;
-            IList<Dostavljac> dostavljac = ucitajZaposlene("B");
-            foreach (Dostavljac d in dostavljac)
+            if (radioButtonAutomobil.Checked)
             {
-                listBoxZaposleni.Items.Add(d);
+                listBoxZaposleni.Items.Clear();
+                groupBoxSkuAut.Visible = true;
+                IList<Dostavljac> dostavljac = ucitajZaposlene("B");
+                foreach (Dostavljac d in dostavljac)
+                {
+                    listBoxZaposleni.Items.Add(d);
+                }
             }
         }
 
