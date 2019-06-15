@@ -21,7 +21,7 @@ namespace PIZZAtest
 
             groupIIdeo.Hide();
 
-            provera();
+           // provera();
         }
         private void provera()
         {
