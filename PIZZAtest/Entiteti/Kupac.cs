@@ -16,7 +16,7 @@ namespace PIZZAtest.Entiteti
         public virtual IList<Porudzbina> Porudzbine { get; set; }
         public override string ToString()
         {
-            return Id.ToString() + "    " + LicniBroj.Id.ToString();
+            return Id + "    " + LicniBroj.ToString();
         }
         public Kupac()
         {
@@ -30,7 +30,7 @@ namespace PIZZAtest.Entiteti
         public virtual IList<Poklon> Pokloni { get; set; }
         public override string ToString()
         {
-            return Id.ToString() + "    " + LicniBroj.Id.ToString() + " " + SakupljeniBodovi.ToString();
+            return Id + "    " + LicniBroj.ToString() + " " + SakupljeniBodovi.ToString();
         }
         public Ucesnik()
         {

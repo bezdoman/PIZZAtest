@@ -46,5 +46,10 @@ namespace PIZZAtest.Entiteti
             Telefoni = new List<Telefon>();
             Emailovi = new List<Email>();
         }
+
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
     }
 }
