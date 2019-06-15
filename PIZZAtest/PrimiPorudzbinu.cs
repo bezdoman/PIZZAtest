@@ -155,6 +155,8 @@ namespace PIZZAtest
             ITransaction t = s.BeginTransaction();
 
             Kupac k = s.Load<Kupac>(((Kupac)listKupac.SelectedItem).Id);
+            int suma = 0;
+            
             Operater o = s.Load<Operater>(((Operater)listOperater.SelectedItem).Id);
             NeisporucenaPorudzbina p = new NeisporucenaPorudzbina()
             {
@@ -171,6 +173,58 @@ namespace PIZZAtest
                 x.PorudzbinaId = p;
                 s.Save(x);
                 p.Sadrzaj.Add(x);
+                suma += x.VelicinaId.Bodovi;
+            }
+          //  k = (Ucesnik)k;
+            if (k.GetType() == typeof(Ucesnik))
+            {
+                ISession sesija = DataLayer.GetSession();
+                ITransaction transakcija = sesija.BeginTransaction();
+
+                sesija.Delete(k);
+                transakcija.Commit();
+
+                listOperater.Items.Clear();
+                listKupac.Items.Clear();
+
+                Ucesnik novi = new Ucesnik();
+                novi.DatumPrvePorudzbine = novi.DatumPrvePorudzbine;
+
+                novi.SakupljeniBodovi = ((Ucesnik)k).SakupljeniBodovi + suma;
+                novi.Porudzbine = k.Porudzbine;
+                novi.LicniBroj = k.LicniBroj;
+                sesija.Save(novi);
+
+                sesija.Close();
+
+                sesija = DataLayer.GetSession();
+                transakcija = sesija.BeginTransaction();
+                foreach (Porudzbina porudzbina in k.Porudzbine)
+                {
+                    Porudzbina por;
+                    if (porudzbina.GetType() == typeof(NeisporucenaPorudzbina))
+                        por = new NeisporucenaPorudzbina();
+                    else
+                        por = new IsporucenaPorudzbina();
+                    por = porudzbina;
+                    por.IdKupca = novi;
+                    sesija.Save(por);
+
+                }
+                foreach (Poklon nagrada in ((Ucesnik)k).Pokloni)
+                {
+                    Poklon pok;
+                    if (nagrada.GetType() == typeof(PoklonPopust))
+                        pok = new PoklonPopust();
+                    else
+                        pok = new PoklonPizza();
+                    pok = nagrada;
+                    pok.IdKupca = novi;
+                    sesija.Save(pok);
+                }
+                transakcija.Commit();
+                sesija.Close();
+    //            k = novi;
             }
             t.Commit();
             s.Close();
