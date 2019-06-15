@@ -51,11 +51,13 @@
             this.btnNovaPizza = new System.Windows.Forms.Button();
             this.btnNoviZaposleni = new System.Windows.Forms.Button();
             this.buttonNovoVozilo = new System.Windows.Forms.Button();
+            this.groupIIdeo = new System.Windows.Forms.GroupBox();
+            this.groupIIdeo.SuspendLayout();
             this.SuspendLayout();
             // 
             // InsertOsoba
             // 
-            this.InsertOsoba.Location = new System.Drawing.Point(149, 12);
+            this.InsertOsoba.Location = new System.Drawing.Point(166, 28);
             this.InsertOsoba.Name = "InsertOsoba";
             this.InsertOsoba.Size = new System.Drawing.Size(120, 23);
             this.InsertOsoba.TabIndex = 1;
@@ -65,7 +67,7 @@
             // 
             // InsertKontakt
             // 
-            this.InsertKontakt.Location = new System.Drawing.Point(149, 59);
+            this.InsertKontakt.Location = new System.Drawing.Point(166, 75);
             this.InsertKontakt.Name = "InsertKontakt";
             this.InsertKontakt.Size = new System.Drawing.Size(120, 23);
             this.InsertKontakt.TabIndex = 2;
@@ -75,7 +77,7 @@
             // 
             // UcesnikPoklon
             // 
-            this.UcesnikPoklon.Location = new System.Drawing.Point(13, 101);
+            this.UcesnikPoklon.Location = new System.Drawing.Point(30, 117);
             this.UcesnikPoklon.Name = "UcesnikPoklon";
             this.UcesnikPoklon.Size = new System.Drawing.Size(93, 25);
             this.UcesnikPoklon.TabIndex = 3;
@@ -85,7 +87,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 12);
+            this.button1.Location = new System.Drawing.Point(30, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 23);
             this.button1.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             // Smene
             // 
-            this.Smene.Location = new System.Drawing.Point(13, 59);
+            this.Smene.Location = new System.Drawing.Point(30, 75);
             this.Smene.Name = "Smene";
             this.Smene.Size = new System.Drawing.Size(94, 23);
             this.Smene.TabIndex = 5;
@@ -105,7 +107,7 @@
             // 
             // Jezici
             // 
-            this.Jezici.Location = new System.Drawing.Point(13, 148);
+            this.Jezici.Location = new System.Drawing.Point(30, 164);
             this.Jezici.Name = "Jezici";
             this.Jezici.Size = new System.Drawing.Size(93, 23);
             this.Jezici.TabIndex = 6;
@@ -115,7 +117,7 @@
             // 
             // Vozila
             // 
-            this.Vozila.Location = new System.Drawing.Point(13, 192);
+            this.Vozila.Location = new System.Drawing.Point(30, 208);
             this.Vozila.Name = "Vozila";
             this.Vozila.Size = new System.Drawing.Size(93, 23);
             this.Vozila.TabIndex = 7;
@@ -125,7 +127,7 @@
             // 
             // Dodaci
             // 
-            this.Dodaci.Location = new System.Drawing.Point(12, 238);
+            this.Dodaci.Location = new System.Drawing.Point(29, 254);
             this.Dodaci.Name = "Dodaci";
             this.Dodaci.Size = new System.Drawing.Size(94, 23);
             this.Dodaci.TabIndex = 8;
@@ -135,7 +137,7 @@
             // 
             // Ukupno
             // 
-            this.Ukupno.Location = new System.Drawing.Point(13, 278);
+            this.Ukupno.Location = new System.Drawing.Point(30, 294);
             this.Ukupno.Name = "Ukupno";
             this.Ukupno.Size = new System.Drawing.Size(93, 23);
             this.Ukupno.TabIndex = 9;
@@ -145,7 +147,7 @@
             // 
             // InsertPorudzbina
             // 
-            this.InsertPorudzbina.Location = new System.Drawing.Point(149, 238);
+            this.InsertPorudzbina.Location = new System.Drawing.Point(166, 254);
             this.InsertPorudzbina.Name = "InsertPorudzbina";
             this.InsertPorudzbina.Size = new System.Drawing.Size(120, 23);
             this.InsertPorudzbina.TabIndex = 10;
@@ -155,7 +157,7 @@
             // 
             // NoviZaposleni
             // 
-            this.NoviZaposleni.Location = new System.Drawing.Point(149, 101);
+            this.NoviZaposleni.Location = new System.Drawing.Point(166, 117);
             this.NoviZaposleni.Name = "NoviZaposleni";
             this.NoviZaposleni.Size = new System.Drawing.Size(120, 23);
             this.NoviZaposleni.TabIndex = 11;
@@ -165,7 +167,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(149, 277);
+            this.button2.Location = new System.Drawing.Point(166, 293);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 23);
             this.button2.TabIndex = 12;
@@ -175,7 +177,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(149, 192);
+            this.button3.Location = new System.Drawing.Point(166, 208);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 23);
             this.button3.TabIndex = 13;
@@ -185,7 +187,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(149, 148);
+            this.button4.Location = new System.Drawing.Point(166, 164);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(120, 23);
             this.button4.TabIndex = 14;
@@ -195,7 +197,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(284, 59);
+            this.button5.Location = new System.Drawing.Point(301, 75);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 15;
@@ -205,7 +207,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(303, 192);
+            this.button6.Location = new System.Drawing.Point(320, 208);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 16;
@@ -215,7 +217,7 @@
             // 
             // btnPrimiPorudzbinu
             // 
-            this.btnPrimiPorudzbinu.Location = new System.Drawing.Point(595, 32);
+            this.btnPrimiPorudzbinu.Location = new System.Drawing.Point(57, 45);
             this.btnPrimiPorudzbinu.Name = "btnPrimiPorudzbinu";
             this.btnPrimiPorudzbinu.Size = new System.Drawing.Size(156, 23);
             this.btnPrimiPorudzbinu.TabIndex = 17;
@@ -225,7 +227,7 @@
             // 
             // btnIsporuci
             // 
-            this.btnIsporuci.Location = new System.Drawing.Point(595, 75);
+            this.btnIsporuci.Location = new System.Drawing.Point(57, 88);
             this.btnIsporuci.Name = "btnIsporuci";
             this.btnIsporuci.Size = new System.Drawing.Size(156, 23);
             this.btnIsporuci.TabIndex = 18;
@@ -235,7 +237,7 @@
             // 
             // btnUcesnik
             // 
-            this.btnUcesnik.Location = new System.Drawing.Point(595, 118);
+            this.btnUcesnik.Location = new System.Drawing.Point(57, 131);
             this.btnUcesnik.Name = "btnUcesnik";
             this.btnUcesnik.Size = new System.Drawing.Size(156, 23);
             this.btnUcesnik.TabIndex = 19;
@@ -245,7 +247,7 @@
             // 
             // btnNovaOsoba
             // 
-            this.btnNovaOsoba.Location = new System.Drawing.Point(595, 162);
+            this.btnNovaOsoba.Location = new System.Drawing.Point(57, 175);
             this.btnNovaOsoba.Name = "btnNovaOsoba";
             this.btnNovaOsoba.Size = new System.Drawing.Size(156, 23);
             this.btnNovaOsoba.TabIndex = 20;
@@ -255,7 +257,7 @@
             // 
             // btnNovaPizza
             // 
-            this.btnNovaPizza.Location = new System.Drawing.Point(595, 207);
+            this.btnNovaPizza.Location = new System.Drawing.Point(57, 220);
             this.btnNovaPizza.Name = "btnNovaPizza";
             this.btnNovaPizza.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnNovaPizza.Size = new System.Drawing.Size(156, 23);
@@ -266,7 +268,7 @@
             // 
             // btnNoviZaposleni
             // 
-            this.btnNoviZaposleni.Location = new System.Drawing.Point(595, 254);
+            this.btnNoviZaposleni.Location = new System.Drawing.Point(57, 267);
             this.btnNoviZaposleni.Name = "btnNoviZaposleni";
             this.btnNoviZaposleni.Size = new System.Drawing.Size(156, 23);
             this.btnNoviZaposleni.TabIndex = 22;
@@ -276,7 +278,7 @@
             // 
             // buttonNovoVozilo
             // 
-            this.buttonNovoVozilo.Location = new System.Drawing.Point(595, 294);
+            this.buttonNovoVozilo.Location = new System.Drawing.Point(57, 307);
             this.buttonNovoVozilo.Name = "buttonNovoVozilo";
             this.buttonNovoVozilo.Size = new System.Drawing.Size(156, 23);
             this.buttonNovoVozilo.TabIndex = 23;
@@ -284,12 +286,38 @@
             this.buttonNovoVozilo.UseVisualStyleBackColor = true;
             this.buttonNovoVozilo.Click += new System.EventHandler(this.button13_Click);
             // 
+            // groupIIdeo
+            // 
+            this.groupIIdeo.Controls.Add(this.Jezici);
+            this.groupIIdeo.Controls.Add(this.InsertOsoba);
+            this.groupIIdeo.Controls.Add(this.InsertKontakt);
+            this.groupIIdeo.Controls.Add(this.UcesnikPoklon);
+            this.groupIIdeo.Controls.Add(this.button1);
+            this.groupIIdeo.Controls.Add(this.Smene);
+            this.groupIIdeo.Controls.Add(this.Vozila);
+            this.groupIIdeo.Controls.Add(this.Dodaci);
+            this.groupIIdeo.Controls.Add(this.button6);
+            this.groupIIdeo.Controls.Add(this.Ukupno);
+            this.groupIIdeo.Controls.Add(this.button5);
+            this.groupIIdeo.Controls.Add(this.InsertPorudzbina);
+            this.groupIIdeo.Controls.Add(this.button4);
+            this.groupIIdeo.Controls.Add(this.NoviZaposleni);
+            this.groupIIdeo.Controls.Add(this.button3);
+            this.groupIIdeo.Controls.Add(this.button2);
+            this.groupIIdeo.Location = new System.Drawing.Point(373, 12);
+            this.groupIIdeo.Name = "groupIIdeo";
+            this.groupIIdeo.Size = new System.Drawing.Size(436, 379);
+            this.groupIIdeo.TabIndex = 24;
+            this.groupIIdeo.TabStop = false;
+            this.groupIIdeo.Text = "IIdeo";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(908, 385);
+            this.ClientSize = new System.Drawing.Size(277, 415);
+            this.Controls.Add(this.groupIIdeo);
             this.Controls.Add(this.buttonNovoVozilo);
             this.Controls.Add(this.btnNoviZaposleni);
             this.Controls.Add(this.btnNovaPizza);
@@ -297,25 +325,10 @@
             this.Controls.Add(this.btnUcesnik);
             this.Controls.Add(this.btnIsporuci);
             this.Controls.Add(this.btnPrimiPorudzbinu);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.NoviZaposleni);
-            this.Controls.Add(this.InsertPorudzbina);
-            this.Controls.Add(this.Ukupno);
-            this.Controls.Add(this.Dodaci);
-            this.Controls.Add(this.Vozila);
-            this.Controls.Add(this.Jezici);
-            this.Controls.Add(this.Smene);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.UcesnikPoklon);
-            this.Controls.Add(this.InsertKontakt);
-            this.Controls.Add(this.InsertOsoba);
             this.Name = "Form1";
             this.Text = "PIZZA";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupIIdeo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -344,6 +357,7 @@
         private System.Windows.Forms.Button btnNovaPizza;
         private System.Windows.Forms.Button btnNoviZaposleni;
         private System.Windows.Forms.Button buttonNovoVozilo;
+        private System.Windows.Forms.GroupBox groupIIdeo;
     }
 }
 

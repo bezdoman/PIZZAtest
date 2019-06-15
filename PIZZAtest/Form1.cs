@@ -18,6 +18,21 @@ namespace PIZZAtest
         public Form1()
         {
             InitializeComponent();
+
+            groupIIdeo.Hide();
+
+            provera();
+        }
+        private void provera()
+        {
+            ISession sesija = DataLayer.GetSession();
+            ITransaction transakcija = sesija.BeginTransaction();
+            IsporucenaPorudzbina p = sesija.Load<IsporucenaPorudzbina>(95);
+            Dostavljac d= sesija.Load<Dostavljac>(p.IdDostavljac.Id);
+            Operater o = sesija.Load<Operater>(p.IdOperater.Id);
+            Vozilo v = sesija.Load<Vozilo>(p.IdVozilo.Idv);
+            Kupac k = sesija.Load<Kupac>(p.IdKupca.Id);
+            sesija.Close();
         }
         private void UcitajNeisporucene() {
             try

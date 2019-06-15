@@ -14,12 +14,14 @@ namespace PIZZAtest
 {
     public partial class Isporuci : Form
     {
-        public IsporucenaPorudzbina porudzbina;
+       // public IsporucenaPorudzbina porudzbina;
+        IList<Dostavljac> dostavljaci;
+        IList<NeisporucenaPorudzbina> porudzbine;
         public Isporuci()
         {
             InitializeComponent();
 
-            porudzbina = new IsporucenaPorudzbina();
+           // porudzbina = new IsporucenaPorudzbina();
 
             UcitajNeisporucene();
 
@@ -27,14 +29,14 @@ namespace PIZZAtest
         }
         private void UcitajVozila()
         {
-            if (listBox2.SelectedIndices.Count == 1)
+            if (listDostavljac.SelectedIndices.Count == 1)
             {
                 ISession sesija = DataLayer.GetSession();
-                Dostavljac dostavljac = sesija.Load<Dostavljac>( ( (Dostavljac)listBox2.SelectedItem).Id );
-                listBox3.Items.Clear();
+                Dostavljac dostavljac = sesija.Load<Dostavljac>( ( (Dostavljac)listDostavljac.SelectedItem).Id );
+                listVozilo.Items.Clear();
                 foreach (Vozilo vozilo in dostavljac.Vozila)
                 {
-                    listBox3.Items.Add(vozilo);
+                    listVozilo.Items.Add(vozilo);
                 }
                 sesija.Close();
             }
@@ -45,9 +47,9 @@ namespace PIZZAtest
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession sesija = DataLayer.GetSession();
 
-                IList<Dostavljac> dostavljaci = s.QueryOver<Dostavljac>()
+                dostavljaci = sesija.QueryOver<Dostavljac>()
                                                 //.Where(x=>x.Kategorija=="B")
                                                 .List<Dostavljac>();
 
@@ -55,10 +57,12 @@ namespace PIZZAtest
 
                 foreach (Dostavljac dostavljac in dostavljaci)
                 {
-                    listBox2.Items.Add(dostavljac);
+                   dostavljac.LicniBroj = sesija.QueryOver<Osoba>().Where(x => x.Id == dostavljac.LicniBroj.Id).List<Osoba>()[0];
+
+                    listDostavljac.Items.Add(dostavljac);
                 }
 
-                s.Close();
+                sesija.Close();
 
             }
             catch (Exception ec)
@@ -70,17 +74,21 @@ namespace PIZZAtest
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession sesija = DataLayer.GetSession();
 
-                IList<NeisporucenaPorudzbina> porudzbine = s.QueryOver<NeisporucenaPorudzbina>()
+                porudzbine = sesija.QueryOver<NeisporucenaPorudzbina>()
                                                 .List<NeisporucenaPorudzbina>();
 
                 foreach (NeisporucenaPorudzbina np in porudzbine)
                 {
-                    listBox1.Items.Add(np);
+                    np.IdKupca = sesija.QueryOver<Kupac>().Where(x => x.Id == np.IdKupca.Id).List<Kupac>()[0];
+
+                    np.IdKupca.LicniBroj = sesija.QueryOver<Osoba>().Where(x => x.Id == np.IdKupca.LicniBroj.Id).List<Osoba>()[0];
+
+                    listPorudzbina.Items.Add(np);
                 }
 
-                s.Close();
+                sesija.Close();
 
             }
             catch (Exception ec)
@@ -90,10 +98,55 @@ namespace PIZZAtest
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndices.Count == 1 && listBox2.SelectedIndices.Count == 1 && listBox3.SelectedIndices.Count == 1)
+            if (listPorudzbina.SelectedIndices.Count == 1 && listDostavljac.SelectedIndices.Count == 1 && listVozilo.SelectedIndices.Count == 1)
             {
-                porudzbina.DatumVremeIsporuke = DateTime.Now;
-                //ubacivanje porudzbine u bazu
+                ISession sesija = DataLayer.GetSession();
+                ITransaction transakcija = sesija.BeginTransaction();
+
+                NeisporucenaPorudzbina np = sesija.Load<NeisporucenaPorudzbina>(((NeisporucenaPorudzbina)listPorudzbina.SelectedItem).Idp);
+                sesija.Delete(np);
+                transakcija.Commit();
+
+                Dostavljac dostavljac = sesija.Load<Dostavljac>(((Dostavljac)listDostavljac.SelectedItem).Id);
+                Vozilo vozilo= sesija.Load<Vozilo>(((Vozilo)listVozilo.SelectedItem).Idv);
+                IsporucenaPorudzbina porudzbina = new IsporucenaPorudzbina()
+                {
+                    DatumVremeIsporuke = DateTime.Now,
+                    IdDostavljac = dostavljac,
+                    IdVozilo = vozilo,
+                    IdKupca=np.IdKupca,
+                    IdOperater=np.IdOperater,
+                    DatumVremeKreiranja=np.DatumVremeKreiranja,
+                    NacinPlacanja=np.NacinPlacanja,
+                    Sadrzaj=np.Sadrzaj
+                };
+                sesija.Save(porudzbina);
+
+                porudzbina.IdKupca.Porudzbine.Remove(np);
+                porudzbina.IdOperater.PrimljenePorudzbine.Remove(np);
+               
+                listPorudzbina.Items.Clear();
+                listDostavljac.Items.Clear();
+                listVozilo.Items.Clear();
+                
+                sesija.Close();
+
+
+                sesija = DataLayer.GetSession();
+                transakcija = sesija.BeginTransaction();
+                foreach (Sadrzi sadrzaj in np.Sadrzaj)
+                {
+                    Sadrzi s=new Sadrzi();
+                    s = sadrzaj;
+                    s.PorudzbinaId = porudzbina;
+                    sesija.Save(s);
+                }
+                transakcija.Commit();
+                sesija.Close();
+
+                UcitajNeisporucene();
+                UcitajDostavljace();
+                
             }
             else {
                 MessageBox.Show("Izaberite po podatak iz svakog polja");
@@ -102,33 +155,15 @@ namespace PIZZAtest
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            NeisporucenaPorudzbina np = (NeisporucenaPorudzbina)listBox1.SelectedItem;
-            porudzbina.DatumVremeKreiranja = np.DatumVremeKreiranja;
-            porudzbina.IdKupca = np.IdKupca;
-            porudzbina.Sadrzaj = np.Sadrzaj;
-            porudzbina.NacinPlacanja = np.NacinPlacanja;
-            porudzbina.IdOperater = np.IdOperater;
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndices.Count == 1)
-            {
-                porudzbina.IdDostavljac = (Dostavljac)listBox2.SelectedItem;
                 UcitajVozila();
-            }
-            else
-                MessageBox.Show("Izaberite jednu porudzbinu");
         }
 
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox2.SelectedIndices.Count == 1)
-            {
-                porudzbina.IdVozilo = (Vozilo)listBox3.SelectedItem;
-            }
-            else
-                MessageBox.Show("Izaberite jednog dostavljaca");
         }
 
         private void Isporuci_Load(object sender, EventArgs e)

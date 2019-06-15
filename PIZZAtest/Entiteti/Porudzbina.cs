@@ -18,7 +18,7 @@ namespace PIZZAtest.Entiteti
 
         public override string ToString()
         {
-            return Idp.ToString()+" "+DatumVremeKreiranja.ToShortDateString() + " " + IdKupca.Id.ToString() + " " + Stanje;
+            return Idp.ToString()+" "+DatumVremeKreiranja.ToShortDateString() + " " + IdKupca.ToString();
         }
         public Porudzbina()
         {

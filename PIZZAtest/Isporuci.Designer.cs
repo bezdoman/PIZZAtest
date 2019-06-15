@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listPorudzbina = new System.Windows.Forms.ListBox();
+            this.listDostavljac = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listVozilo = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listPorudzbina
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(29, 51);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(201, 303);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listPorudzbina.FormattingEnabled = true;
+            this.listPorudzbina.Location = new System.Drawing.Point(29, 51);
+            this.listPorudzbina.Name = "listPorudzbina";
+            this.listPorudzbina.Size = new System.Drawing.Size(201, 303);
+            this.listPorudzbina.TabIndex = 0;
+            this.listPorudzbina.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // listBox2
+            // listDostavljac
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(250, 51);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(164, 303);
-            this.listBox2.TabIndex = 1;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.listDostavljac.FormattingEnabled = true;
+            this.listDostavljac.Location = new System.Drawing.Point(250, 51);
+            this.listDostavljac.Name = "listDostavljac";
+            this.listDostavljac.Size = new System.Drawing.Size(164, 303);
+            this.listDostavljac.TabIndex = 1;
+            this.listDostavljac.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -73,14 +73,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Dostavljaci:";
             // 
-            // listBox3
+            // listVozilo
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(434, 51);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(164, 303);
-            this.listBox3.TabIndex = 4;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
+            this.listVozilo.FormattingEnabled = true;
+            this.listVozilo.Location = new System.Drawing.Point(434, 51);
+            this.listVozilo.Name = "listVozilo";
+            this.listVozilo.Size = new System.Drawing.Size(164, 303);
+            this.listVozilo.TabIndex = 4;
+            this.listVozilo.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -108,11 +108,11 @@
             this.ClientSize = new System.Drawing.Size(632, 458);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.listVozilo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listDostavljac);
+            this.Controls.Add(this.listPorudzbina);
             this.Name = "Isporuci";
             this.Text = "Isporuci";
             this.Load += new System.EventHandler(this.Isporuci_Load);
@@ -123,11 +123,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listPorudzbina;
+        private System.Windows.Forms.ListBox listDostavljac;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listVozilo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
     }
