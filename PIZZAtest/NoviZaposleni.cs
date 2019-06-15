@@ -134,12 +134,13 @@ namespace PIZZAtest
                     }
                 }
                 sesija.Close();
+                DialogResult = DialogResult.OK;
+                this.Close();
             }
             else {
                 MessageBox.Show("Unesite licne podatke");
             }
-            DialogResult = DialogResult.OK;
-            this.Close();
+            
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)

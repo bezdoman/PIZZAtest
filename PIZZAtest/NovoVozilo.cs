@@ -103,6 +103,7 @@ namespace PIZZAtest
         private void buttonVoziloGod_Click(object sender, EventArgs e)
         {
             ISession session = DataLayer.GetSession();
+            ITransaction transakcija = session.BeginTransaction();
             if (radioButtonBicikl.Checked)
             {
                 //naziv rama je naziv modela greska u imenovanju
@@ -112,16 +113,26 @@ namespace PIZZAtest
                     vozilo.Model = textBoxNazivRama.Text;
                     vozilo.Proizvodjac = textBoxProizvodjac.Text;
                     vozilo.Ram = int.Parse(textBoxVelicinaRama.Text);
-                    if (listBoxZaposleni.SelectedIndex == -1)
+                    if (listBoxZaposleni.SelectedIndex != -1)
                     {
-                        vozilo.IdZaposleni = null;
+                        //    vozilo.IdZaposleni = null;
+                        //}
+                        //else
+                        //{
+                        //Mapiranje ovo samo radi
+                        Dostavljac dostavljac = session.Load<Dostavljac>(((Dostavljac)listBoxZaposleni.SelectedItem).Id);
+                        vozilo.IdZaposleni = dostavljac;
+                        session.Save(vozilo);
+                        dostavljac.Vozila.Add(vozilo);
+                        transakcija.Commit();
                     }
+                    //session.Save(vozilo);
+                    //transakcija.Commit();
                     else
                     {
-                        Dostavljac dostavljac = (Dostavljac)listBoxZaposleni.SelectedItem;
-                        vozilo.IdZaposleni = dostavljac;
+                        session.Save(vozilo);
+                        transakcija.Commit();
                     }
-                    session.Save(vozilo);
                 }
                 else
                 {
@@ -137,16 +148,19 @@ namespace PIZZAtest
                     skuter.Proizvodjac = textBoxProizvodjac.Text;
                     skuter.Registracija = textBoxRegistracioniBroj.Text;
                     skuter.Dozvola = int.Parse(textBoxBrojDozvole.Text);
-                    if (listBoxZaposleni.SelectedIndex == -1)
+                    if (listBoxZaposleni.SelectedIndex != -1)
                     {
-                        skuter.IdZaposleni = null;
+                        Dostavljac dostavljac = session.Load<Dostavljac>(((Dostavljac)listBoxZaposleni.SelectedItem).Id);
+                        skuter.IdZaposleni = dostavljac;
+                        session.Save(skuter);
+                        dostavljac.Vozila.Add(skuter);
+                        transakcija.Commit();
                     }
                     else
                     {
-                        Dostavljac dostavljac = (Dostavljac)listBoxZaposleni.SelectedItem;
-                        skuter.IdZaposleni = dostavljac;
+                        session.Save(skuter);
+                        transakcija.Commit();
                     }
-                    session.Save(skuter);
                 }
 
                 else
@@ -163,16 +177,19 @@ namespace PIZZAtest
                     skuter.Proizvodjac = textBoxProizvodjac.Text;
                     skuter.Registracija = textBoxRegistracioniBroj.Text;
                     skuter.Dozvola = int.Parse(textBoxBrojDozvole.Text);
-                    if (listBoxZaposleni.SelectedIndex == -1)
+                    if (listBoxZaposleni.SelectedIndex != -1)
                     {
-                        skuter.IdZaposleni = null;
+                        Dostavljac dostavljac = session.Load<Dostavljac>(((Dostavljac)listBoxZaposleni.SelectedItem).Id);
+                        skuter.IdZaposleni = dostavljac;
+                        session.Save(skuter);
+                        dostavljac.Vozila.Add(skuter);
+                        transakcija.Commit();
                     }
                     else
                     {
-                        Dostavljac dostavljac = (Dostavljac)listBoxZaposleni.SelectedItem;
-                        skuter.IdZaposleni = dostavljac;
+                        session.Save(skuter);
+                        transakcija.Commit();
                     }
-                    session.Save(skuter);
                 }
                 else
                 {
