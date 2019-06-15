@@ -36,7 +36,7 @@ namespace PIZZAtest.Entiteti
 
         public override string ToString()
         {
-            return Id.ToString() + " " + JMBG.ToString() + " " + Kategorija + " " + Tip;
+            return Id + " " + LicniBroj.ToString();
         }
     }
     public class Operater : Zaposleni
@@ -50,6 +50,10 @@ namespace PIZZAtest.Entiteti
             Jezici = new List<StraniJezik>();
             PrimljenePorudzbine = new List<Porudzbina>();
         }
-        
+
+        public override string ToString()
+        {
+            return Id + " " + JMBG + " " + LicniBroj.ToString();
+        }
     }
 }

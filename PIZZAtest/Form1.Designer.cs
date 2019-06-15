@@ -48,8 +48,8 @@
             this.btnIsporuci = new System.Windows.Forms.Button();
             this.btnUcesnik = new System.Windows.Forms.Button();
             this.btnNovaOsoba = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnNovaPizza = new System.Windows.Forms.Button();
+            this.btnNoviZaposleni = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -253,23 +253,26 @@
             this.btnNovaOsoba.UseVisualStyleBackColor = true;
             this.btnNovaOsoba.Click += new System.EventHandler(this.btnNovaOsoba_Click);
             // 
-            // button11
+            // btnNovaPizza
             // 
-            this.button11.Location = new System.Drawing.Point(595, 207);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(156, 23);
-            this.button11.TabIndex = 21;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnNovaPizza.Location = new System.Drawing.Point(595, 207);
+            this.btnNovaPizza.Name = "btnNovaPizza";
+            this.btnNovaPizza.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnNovaPizza.Size = new System.Drawing.Size(156, 23);
+            this.btnNovaPizza.TabIndex = 21;
+            this.btnNovaPizza.Text = "Nova Pizza";
+            this.btnNovaPizza.UseVisualStyleBackColor = true;
+            this.btnNovaPizza.Click += new System.EventHandler(this.btnNovaPizza_Click);
             // 
-            // button12
+            // btnNoviZaposleni
             // 
-            this.button12.Location = new System.Drawing.Point(595, 254);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(156, 23);
-            this.button12.TabIndex = 22;
-            this.button12.Text = "button12";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnNoviZaposleni.Location = new System.Drawing.Point(595, 254);
+            this.btnNoviZaposleni.Name = "btnNoviZaposleni";
+            this.btnNoviZaposleni.Size = new System.Drawing.Size(156, 23);
+            this.btnNoviZaposleni.TabIndex = 22;
+            this.btnNoviZaposleni.Text = "Novi Zaposleni";
+            this.btnNoviZaposleni.UseVisualStyleBackColor = true;
+            this.btnNoviZaposleni.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -287,8 +290,8 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(908, 385);
             this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.btnNoviZaposleni);
+            this.Controls.Add(this.btnNovaPizza);
             this.Controls.Add(this.btnNovaOsoba);
             this.Controls.Add(this.btnUcesnik);
             this.Controls.Add(this.btnIsporuci);
@@ -337,8 +340,8 @@
         private System.Windows.Forms.Button btnIsporuci;
         private System.Windows.Forms.Button btnUcesnik;
         private System.Windows.Forms.Button btnNovaOsoba;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnNovaPizza;
+        private System.Windows.Forms.Button btnNoviZaposleni;
         private System.Windows.Forms.Button button13;
     }
 }

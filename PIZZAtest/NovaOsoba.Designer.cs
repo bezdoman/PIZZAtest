@@ -142,9 +142,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(112, 346);
+            this.button1.Location = new System.Drawing.Point(100, 339);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(97, 30);
             this.button1.TabIndex = 12;
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;

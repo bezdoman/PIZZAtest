@@ -15,5 +15,10 @@ namespace PIZZAtest.Entiteti
         {
             Pizze = new List<Sadrzi>();
         }
+
+        public override string ToString()
+        {
+            return Velicina;
+        }
     }
 }

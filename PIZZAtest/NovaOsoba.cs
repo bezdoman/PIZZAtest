@@ -14,7 +14,7 @@ namespace PIZZAtest
 {
     public partial class NovaOsoba : Form
     {
-        public int broj = 1;
+        public int broj;
         public BindingList<string> Emailovi;
         public BindingList<string> Telefoni;
         public NovaOsoba()
@@ -24,6 +24,7 @@ namespace PIZZAtest
             Telefoni=new BindingList<string>();
             listBoxEmail.DataSource = Emailovi;
             listBoxTelefoni.DataSource = Telefoni;
+            broj = -1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,29 +33,49 @@ namespace PIZZAtest
             {
                 try
                 {
-                    //ISession s = DataLayer.GetSession();
-                    //ITransaction t = s.BeginTransaction();
-                    //Osoba o = new Osoba()
-                    //{
-                    //    Ime = txtIme.Text,
-                    //    Prezime = txtPrezime.Text,
-                    //    Ulica = txtUlica.Text,
-                    //    Broj = (int)numUDBroj.Value,
-                    //    Grad = txtGrad.Text,
-                    //    Drzava = txtDrzava.Text
-                    //};
+                    ISession s = DataLayer.GetSession();
+                    ITransaction t = s.BeginTransaction();
+                    Osoba o = new Osoba()
+                    {
+                        Ime = txtIme.Text,
+                        Prezime = txtPrezime.Text,
+                        Ulica = txtUlica.Text,
+                        Broj = (int)numUDBroj.Value,
+                        Grad = txtGrad.Text,
+                        Drzava = txtDrzava.Text
+                    };
+                    s.Save(o);
+                    foreach (var email in Emailovi)
+                    {
+                        Email em = new Email()
+                        {
+                            EmailKontakt = email,
+                            OsobaKontakt = o
+                        };
+                        s.Save(em);
+                        o.Emailovi.Add(em);
+                    }
 
-
-                    //s.Save(o);
-                    //t.Commit();
-
-                    //s.Close();
-                    //MessageBox.Show("kraj");
+                    foreach (var telefon in Telefoni)
+                    {
+                        Telefon tel = new Telefon()
+                        {
+                            OsobaKontakt = o,
+                            TelefonKontakt = telefon
+                        };
+                        s.Save(tel);
+                        o.Telefoni.Add(tel);
+                    }
+                    broj = o.Id;
+                    t.Commit();
+                    s.Close();
+                    MessageBox.Show("kraj");
                 }
                 catch (Exception ec)
                 {
                     MessageBox.Show(ec.Message);
                 }
+                
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -77,9 +98,6 @@ namespace PIZZAtest
             {
                 if (noviEmail.ShowDialog() == DialogResult.OK)
                 {
-                    //Email email = new Email();
-                    //email.EmailKontakt = noviEmail.Email;
-                    //email.OsobaKontakt
                     Emailovi.Add(noviEmail.Email);
                 }
             }
@@ -93,7 +111,6 @@ namespace PIZZAtest
             {
                 if (noviTel.ShowDialog() == DialogResult.OK)
                 {
-                    //Telefon telefon=new Telefon();
                     Telefoni.Add(noviTel.Tel);
                 }
             }

@@ -31,15 +31,15 @@
             this.btnNoviKupac = new System.Windows.Forms.Button();
             this.listKupac = new System.Windows.Forms.ListBox();
             this.listOperater = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboNacinPlacanja = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboPizza = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listSadrzaj = new System.Windows.Forms.ListBox();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.comboVelicina = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listSadrzaj = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,13 +69,13 @@
             this.listOperater.Size = new System.Drawing.Size(185, 290);
             this.listOperater.TabIndex = 3;
             // 
-            // comboBox1
+            // comboNacinPlacanja
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(507, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.comboNacinPlacanja.FormattingEnabled = true;
+            this.comboNacinPlacanja.Location = new System.Drawing.Point(507, 12);
+            this.comboNacinPlacanja.Name = "comboNacinPlacanja";
+            this.comboNacinPlacanja.Size = new System.Drawing.Size(121, 21);
+            this.comboNacinPlacanja.TabIndex = 4;
             // 
             // label1
             // 
@@ -109,6 +109,14 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sadrzaj porudzbine";
+            // 
+            // listSadrzaj
+            // 
+            this.listSadrzaj.FormattingEnabled = true;
+            this.listSadrzaj.Location = new System.Drawing.Point(6, 185);
+            this.listSadrzaj.Name = "listSadrzaj";
+            this.listSadrzaj.Size = new System.Drawing.Size(202, 95);
+            this.listSadrzaj.TabIndex = 8;
             // 
             // btnDodaj
             // 
@@ -147,14 +155,6 @@
             this.label2.Text = "Ime pice:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // listSadrzaj
-            // 
-            this.listSadrzaj.FormattingEnabled = true;
-            this.listSadrzaj.Location = new System.Drawing.Point(6, 185);
-            this.listSadrzaj.Name = "listSadrzaj";
-            this.listSadrzaj.Size = new System.Drawing.Size(202, 95);
-            this.listSadrzaj.TabIndex = 8;
-            // 
             // PrimiPorudzbinu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,7 +162,7 @@
             this.ClientSize = new System.Drawing.Size(676, 432);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboNacinPlacanja);
             this.Controls.Add(this.listOperater);
             this.Controls.Add(this.listKupac);
             this.Controls.Add(this.btnNoviKupac);
@@ -181,7 +181,7 @@
         private System.Windows.Forms.Button btnNoviKupac;
         private System.Windows.Forms.ListBox listKupac;
         private System.Windows.Forms.ListBox listOperater;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboNacinPlacanja;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboPizza;
         private System.Windows.Forms.GroupBox groupBox1;

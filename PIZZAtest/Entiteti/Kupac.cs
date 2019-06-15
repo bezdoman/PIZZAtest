@@ -11,9 +11,13 @@ namespace PIZZAtest.Entiteti
         public virtual int Id { get; set; }
         public virtual DateTime DatumPrvePorudzbine { get; set; }
         public virtual string Flag { get; set; }
-        public virtual int SakupljeniBodovi { get; set; }
+       
         public virtual Osoba LicniBroj { get; set; }
         public virtual IList<Porudzbina> Porudzbine { get; set; }
+        public override string ToString()
+        {
+            return Id + "    " + LicniBroj.ToString();
+        }
         public Kupac()
         {
             Porudzbine = new List<Porudzbina>();
@@ -22,7 +26,12 @@ namespace PIZZAtest.Entiteti
     }
     public class Ucesnik : Kupac
     {
+        public virtual int SakupljeniBodovi { get; set; }
         public virtual IList<Poklon> Pokloni { get; set; }
+        public override string ToString()
+        {
+            return Id + "    " + LicniBroj.ToString() + " " + SakupljeniBodovi.ToString();
+        }
         public Ucesnik()
         {
             Pokloni = new List<Poklon>();
