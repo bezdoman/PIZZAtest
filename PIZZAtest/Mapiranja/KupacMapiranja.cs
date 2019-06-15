@@ -24,7 +24,7 @@ namespace PIZZAtest.Mapiranja
 
             References(x => x.LicniBroj).Column("LICNI_BROJ").LazyLoad();
 
-            HasMany(x => x.Porudzbine).KeyColumn("ID_KUPCA").Inverse().Cascade.All();
+            HasMany(x => x.Porudzbine).KeyColumn("ID_KUPCA").Inverse().Cascade.AllDeleteOrphan();
         }
     }
     class UcesnikMapiranja : SubclassMap<Ucesnik>

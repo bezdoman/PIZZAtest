@@ -18,6 +18,21 @@ namespace PIZZAtest
         public Form1()
         {
             InitializeComponent();
+
+            groupIIdeo.Hide();
+
+           // provera();
+        }
+        private void provera()
+        {
+            ISession sesija = DataLayer.GetSession();
+            ITransaction transakcija = sesija.BeginTransaction();
+            IsporucenaPorudzbina p = sesija.Load<IsporucenaPorudzbina>(95);
+            Dostavljac d= sesija.Load<Dostavljac>(p.IdDostavljac.Id);
+            Operater o = sesija.Load<Operater>(p.IdOperater.Id);
+            Vozilo v = sesija.Load<Vozilo>(p.IdVozilo.Idv);
+            Kupac k = sesija.Load<Kupac>(p.IdKupca.Id);
+            sesija.Close();
         }
         private void UcitajNeisporucene() {
             try
@@ -503,10 +518,7 @@ namespace PIZZAtest
             {
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    ISession s = DataLayer.GetSession();
-                    //Osoba osoba = s.Load<Osoba>(forma.broj);
-                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
-                    s.Close();
+                    MessageBox.Show("Porudzbina primljena");
                 }
             }
         }
@@ -517,10 +529,7 @@ namespace PIZZAtest
             {
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    ISession s = DataLayer.GetSession();
-                    //Osoba osoba = s.Load<Osoba>(forma.broj);
-                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
-                    s.Close();
+                    MessageBox.Show("Porudzbina isporucena");
                 }
             }
         }
@@ -531,23 +540,13 @@ namespace PIZZAtest
             {
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    ISession s = DataLayer.GetSession();
-                    //Osoba osoba = s.Load<Osoba>(forma.broj);
-                    //MessageBox.Show($"Ime:{osoba.Ime} i prezime:{osoba.Prezime}");
-                    s.Close();
                 }
             }
         }
 
         private void btnNovaOsoba_Click(object sender, EventArgs e)
         {
-            using (NoviZaposleni no=new NoviZaposleni())
-            {
-                if (no.ShowDialog() == DialogResult.OK)
-                {
-                    
-                }
-            }
+            
         }
 
         private void btnNovaPizza_Click(object sender, EventArgs e)
@@ -556,7 +555,7 @@ namespace PIZZAtest
             {
                 if (np.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Yay");
+                    MessageBox.Show("Pizza sacuvana");
                 }
             }
         }
@@ -567,9 +566,32 @@ namespace PIZZAtest
             {
                 if (np.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Yay");
+                    MessageBox.Show("Novi zaposleni sacuvan");
+                }
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            using (NovoVozilo np = new NovoVozilo())
+            {
+                if (np.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Novo vozilo sacuvano");
+                }
+            }
+        }
+
+        private void btnNoviPoklon_Click(object sender, EventArgs e)
+        {
+            using (NoviPoklon np = new NoviPoklon())
+            {
+                if (np.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Poklon dodeljen");
                 }
             }
         }
     }
+    
 }

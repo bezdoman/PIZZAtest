@@ -28,7 +28,7 @@ namespace PIZZAtest.Mapiranja
            
 
             //Porudzbina-Sadrzaj 1:N
-            HasMany(x => x.Sadrzaj).KeyColumn("ID_PORUDZBINE").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.Sadrzaj).KeyColumn("ID_PORUDZBINE").LazyLoad().Cascade.AllDeleteOrphan().Inverse();
         }
     }
     public class IsporucenaPorudzbinaMapiranja : SubclassMap<IsporucenaPorudzbina>

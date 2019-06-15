@@ -123,7 +123,7 @@ namespace PIZZAtest
                             LicniBroj = osoba,
                             DatumRodjenja = dateTimePicker1.Value,
                             JMBG = (int)numericUpDown1.Value,
-                            Kategorija = (string)comboKategorija.SelectedValue
+                            Kategorija = (string)comboKategorija.SelectedItem
                         };
                         sesija.Save(dostavljac);
                         transakcija.Commit();
@@ -147,9 +147,17 @@ namespace PIZZAtest
         {
             if (textJezik.Text != "" && comboNivo.SelectedIndex > -1)
             {
+                
                 StraniJezik jezik = new StraniJezik();
                 jezik.Jezik = textJezik.Text;
                 jezik.Nivo = comboNivo.SelectedItem.ToString();
+                foreach (StraniJezik stranijezik in listJezici.Items)
+                {
+                    if (stranijezik.Jezik==jezik.Jezik&&stranijezik.Nivo==jezik.Nivo)
+                    {
+                        return;
+                    }
+                }
                 listJezici.Items.Add(jezik);
             }
             else {

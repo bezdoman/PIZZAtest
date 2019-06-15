@@ -26,9 +26,9 @@ namespace PIZZAtest
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession sesija = DataLayer.GetSession();
 
-                IQuery sqlQuery = s.CreateSQLQuery("SELECT * FROM KUPAC WHERE UCESNIK_FLAG = 'NE'").AddEntity(typeof(Kupac));
+                IQuery sqlQuery = sesija.CreateSQLQuery("SELECT * FROM KUPAC WHERE UCESNIK_FLAG = 'NE'").AddEntity(typeof(Kupac));
                 var kupci = sqlQuery.List<Kupac>();
 
                 //IList<Kupac> kupci = s.QueryOver<Kupac>()
@@ -39,10 +39,12 @@ namespace PIZZAtest
 
                 foreach (Kupac kupac in kupci)
                 {
+                    kupac.LicniBroj = sesija.QueryOver<Osoba>().Where(x => x.Id == kupac.LicniBroj.Id).List<Osoba>()[0];
+
                     listKupac.Items.Add(kupac);
                 }
 
-                s.Close();
+                sesija.Close();
 
             }
             catch (Exception ec)
@@ -54,9 +56,9 @@ namespace PIZZAtest
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession sesija = DataLayer.GetSession();
 
-                IList<Ucesnik> ucesnici = s.QueryOver<Ucesnik>()
+                IList<Ucesnik> ucesnici = sesija.QueryOver<Ucesnik>()
                                                 //.Where(x=>x.Kategorija=="B")
                                                 .List<Ucesnik>();
 
@@ -64,10 +66,12 @@ namespace PIZZAtest
 
                 foreach (Ucesnik ucesnik in ucesnici)
                 {
+                    ucesnik.LicniBroj = sesija.QueryOver<Osoba>().Where(x => x.Id == ucesnik.LicniBroj.Id).List<Osoba>()[0];
+
                     listUcesnik.Items.Add(ucesnik);
                 }
 
-                s.Close();
+                sesija.Close();
 
             }
             catch (Exception ec)
@@ -84,30 +88,39 @@ namespace PIZZAtest
 
                 Kupac kupac = (Kupac)listKupac.SelectedItem;
                 kupac = sesija.Load<Kupac>(kupac.Id);
+                sesija.Delete(kupac);
+                transakcija.Commit();
+                
+                listKupac.Items.Clear();
+                listUcesnik.Items.Clear();
+                
+
                 Ucesnik ucesnik = new Ucesnik();
                 ucesnik.DatumPrvePorudzbine = kupac.DatumPrvePorudzbine;
 
                 ucesnik.SakupljeniBodovi = 0;
                 ucesnik.Porudzbine = kupac.Porudzbine;
-
-                sesija.Save(ucesnik);
                 ucesnik.LicniBroj = kupac.LicniBroj;
-                foreach (Porudzbina porudzbina in ucesnik.Porudzbine)
-                {
-                    porudzbina.IdKupca = ucesnik;
-                }
-                int i;
-                for (i = 0; i < (kupac.Porudzbine).Count; i++)
-                {
-                    kupac.Porudzbine.RemoveAt(i);
-                }
-                listKupac.Items.Clear();
-                listUcesnik.Items.Clear();
-                sesija.Delete(kupac);
-                transakcija.Commit();
+                sesija.Save(ucesnik);
+
                 sesija.Close();
 
-                //MessageBox.Show("KRAJ");
+                sesija = DataLayer.GetSession();
+                transakcija = sesija.BeginTransaction();
+                foreach (Porudzbina porudzbina in kupac.Porudzbine)
+                {
+                    Porudzbina p;
+                    if (porudzbina.GetType() == typeof(NeisporucenaPorudzbina))
+                        p = new NeisporucenaPorudzbina();
+                    else
+                        p = new IsporucenaPorudzbina();
+                    p = porudzbina;
+                    p.IdKupca = ucesnik;
+                    sesija.Save(p);
+                }
+                transakcija.Commit();
+                sesija.Close();
+                
                 UcitajKupce();
                 UcitajUcesnike();
             }

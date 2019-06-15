@@ -14,6 +14,7 @@ namespace PIZZAtest
 {
     public partial class NovoVozilo : Form
     {
+        IList<Dostavljac> dostavljac;
         public NovoVozilo()
         {
             InitializeComponent();
@@ -21,30 +22,32 @@ namespace PIZZAtest
             groupBoxBickl.Hide();
         }
 
-        public IList<Dostavljac> ucitajZaposlene(string kategorija) {
+        public void ucitajZaposlene(string kategorija) {
             try
             {
                 ISession session = DataLayer.GetSession();
-                IList<Dostavljac> dostavljacs;
                 if (kategorija != "bicikl")
                 {
-                    dostavljacs = session.QueryOver<Dostavljac>()
+                    dostavljac = session.QueryOver<Dostavljac>()
                                     .Where(x => x.Kategorija == kategorija)
                                     .List<Dostavljac>();
+                    foreach (Dostavljac d in dostavljac) {
+                        listBoxZaposleni.Items.Add(d);
+                    }
                 }
                 else
                 {
-                    dostavljacs = session.QueryOver<Dostavljac>()
+                    dostavljac = session.QueryOver<Dostavljac>()
                                     .List<Dostavljac>();
+                    foreach (Dostavljac d in dostavljac) {
+                        listBoxZaposleni.Items.Add(d);
+                    }
                 }
                 session.Close();
-                return dostavljacs;
-                
             }
             catch (Exception ec)
             {
                 MessageBox.Show(ec.Message);
-                return null;
             }
         }
 
@@ -52,13 +55,10 @@ namespace PIZZAtest
         {
             if (radioButtonBicikl.Checked)
             {
+                groupBoxSkuAut.Hide();
                 listBoxZaposleni.Items.Clear();
                 groupBoxBickl.Visible = true;
-                IList<Dostavljac> dostavljac = ucitajZaposlene("bicikl");
-                foreach (Dostavljac d in dostavljac)
-                {
-                    listBoxZaposleni.Items.Add(d);
-                }
+                ucitajZaposlene("bicikl");
             }
         }
 
@@ -71,13 +71,11 @@ namespace PIZZAtest
         {
             if (radioButtonSkuter.Checked)
             {
+                groupBoxBickl.Hide();
                 listBoxZaposleni.Items.Clear();
                 groupBoxSkuAut.Visible = true;
-                IList<Dostavljac> dostavljac = ucitajZaposlene("C");
-                foreach (Dostavljac d in dostavljac)
-                {
-                    listBoxZaposleni.Items.Add(d);
-                }
+                ucitajZaposlene("C");
+                
             }
         }
 
@@ -85,13 +83,10 @@ namespace PIZZAtest
         {
             if (radioButtonAutomobil.Checked)
             {
+                groupBoxBickl.Hide();
                 listBoxZaposleni.Items.Clear();
                 groupBoxSkuAut.Visible = true;
-                IList<Dostavljac> dostavljac = ucitajZaposlene("B");
-                foreach (Dostavljac d in dostavljac)
-                {
-                    listBoxZaposleni.Items.Add(d);
-                }
+                ucitajZaposlene("B");
             }
         }
 
@@ -107,15 +102,13 @@ namespace PIZZAtest
             if (radioButtonBicikl.Checked)
             {
                 //naziv rama je naziv modela greska u imenovanju
-                if (textBoxNazivRama.Text != "" && textBoxProizvodjac.Text != "" && textBoxVelicinaRama.Text != "")
+                if (textBoxNazivRama.Text != "" && textBoxProizvodjac.Text != "" && textBoxVelicinaRama.Text != ""&& listBoxZaposleni.SelectedIndex != -1)
                 {
                     Bicikl vozilo = new Bicikl();
                     vozilo.Model = textBoxNazivRama.Text;
                     vozilo.Proizvodjac = textBoxProizvodjac.Text;
                     vozilo.Ram = int.Parse(textBoxVelicinaRama.Text);
-                    if (listBoxZaposleni.SelectedIndex != -1)
-                    {
-                        //    vozilo.IdZaposleni = null;
+                     //    vozilo.IdZaposleni = null;
                         //}
                         //else
                         //{
@@ -125,14 +118,10 @@ namespace PIZZAtest
                         session.Save(vozilo);
                         dostavljac.Vozila.Add(vozilo);
                         transakcija.Commit();
-                    }
+                    
                     //session.Save(vozilo);
                     //transakcija.Commit();
-                    else
-                    {
-                        session.Save(vozilo);
-                        transakcija.Commit();
-                    }
+                    
                 }
                 else
                 {
@@ -141,7 +130,7 @@ namespace PIZZAtest
             }
             else if (radioButtonSkuter.Checked)
             {
-                if (textBoxNazivRama.Text != "" && textBoxProizvodjac.Text != "" && textBoxBrojDozvole.Text != "" && textBoxRegistracioniBroj.Text != "")
+                if (textBoxNazivRama.Text != "" && textBoxProizvodjac.Text != "" && textBoxBrojDozvole.Text != "" && textBoxRegistracioniBroj.Text != ""&& listBoxZaposleni.SelectedIndex != -1)
                 {
                     Skuter skuter = new Skuter();
                     skuter.Model = textBoxNazivRama.Text;
@@ -170,7 +159,7 @@ namespace PIZZAtest
             }
             else if (radioButtonAutomobil.Checked)
             {
-                if (textBoxNazivRama.Text != "" && textBoxProizvodjac.Text != "" && textBoxBrojDozvole.Text != "" && textBoxRegistracioniBroj.Text != "")
+                if (textBoxNazivRama.Text != "" && textBoxProizvodjac.Text != "" && textBoxBrojDozvole.Text != "" && textBoxRegistracioniBroj.Text != ""&&listBoxZaposleni.SelectedIndex != -1)
                 {
                     Automobil skuter = new Automobil();
                     skuter.Model = textBoxNazivRama.Text;
