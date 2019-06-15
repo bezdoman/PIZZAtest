@@ -36,5 +36,10 @@ namespace PIZZAtest.Entiteti
         {
             return base.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return PizzaId.ToString() + " " + VelicinaId.ToString();
+        }
     }
 }

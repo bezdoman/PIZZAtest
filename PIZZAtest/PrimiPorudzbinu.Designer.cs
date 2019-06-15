@@ -40,14 +40,18 @@
             this.comboVelicina = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnPrimiPorudzibnu = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNoviKupac
             // 
-            this.btnNoviKupac.Location = new System.Drawing.Point(226, 308);
+            this.btnNoviKupac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNoviKupac.Location = new System.Drawing.Point(226, 335);
             this.btnNoviKupac.Name = "btnNoviKupac";
-            this.btnNoviKupac.Size = new System.Drawing.Size(185, 23);
+            this.btnNoviKupac.Size = new System.Drawing.Size(185, 28);
             this.btnNoviKupac.TabIndex = 0;
             this.btnNoviKupac.Text = "Novi Kupac";
             this.btnNoviKupac.UseVisualStyleBackColor = true;
@@ -56,7 +60,7 @@
             // listKupac
             // 
             this.listKupac.FormattingEnabled = true;
-            this.listKupac.Location = new System.Drawing.Point(226, 12);
+            this.listKupac.Location = new System.Drawing.Point(226, 39);
             this.listKupac.Name = "listKupac";
             this.listKupac.Size = new System.Drawing.Size(185, 290);
             this.listKupac.TabIndex = 2;
@@ -64,7 +68,7 @@
             // listOperater
             // 
             this.listOperater.FormattingEnabled = true;
-            this.listOperater.Location = new System.Drawing.Point(12, 12);
+            this.listOperater.Location = new System.Drawing.Point(12, 39);
             this.listOperater.Name = "listOperater";
             this.listOperater.Size = new System.Drawing.Size(185, 290);
             this.listOperater.TabIndex = 3;
@@ -93,7 +97,6 @@
             this.comboPizza.Name = "comboPizza";
             this.comboPizza.Size = new System.Drawing.Size(121, 21);
             this.comboPizza.TabIndex = 6;
-            this.comboPizza.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -153,13 +156,46 @@
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Ime pice:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Operateri:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(223, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Kupci:";
+            // 
+            // btnPrimiPorudzibnu
+            // 
+            this.btnPrimiPorudzibnu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrimiPorudzibnu.Location = new System.Drawing.Point(155, 385);
+            this.btnPrimiPorudzibnu.Name = "btnPrimiPorudzibnu";
+            this.btnPrimiPorudzibnu.Size = new System.Drawing.Size(346, 80);
+            this.btnPrimiPorudzibnu.TabIndex = 10;
+            this.btnPrimiPorudzibnu.Text = "Primi Porudzbinu";
+            this.btnPrimiPorudzibnu.UseVisualStyleBackColor = true;
+            this.btnPrimiPorudzibnu.Click += new System.EventHandler(this.btnPrimiPorudzibnu_Click);
             // 
             // PrimiPorudzbinu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 432);
+            this.ClientSize = new System.Drawing.Size(655, 515);
+            this.Controls.Add(this.btnPrimiPorudzibnu);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboNacinPlacanja);
@@ -168,7 +204,6 @@
             this.Controls.Add(this.btnNoviKupac);
             this.Name = "PrimiPorudzbinu";
             this.Text = "PrimiPorudzbinu";
-            this.Load += new System.EventHandler(this.PrimiPorudzbinu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -190,5 +225,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.ListBox listSadrzaj;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnPrimiPorudzibnu;
     }
 }

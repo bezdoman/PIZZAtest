@@ -14,9 +14,12 @@ namespace PIZZAtest
 {
     public partial class PrimiPorudzbinu : Form
     {
+        private BindingList<Sadrzi> sadrzi;
         public PrimiPorudzbinu()
         {
+            sadrzi=new BindingList<Sadrzi>();
             InitializeComponent();
+            listSadrzaj.DataSource = sadrzi;
 
             Start();
 
@@ -123,25 +126,51 @@ namespace PIZZAtest
                 }
             }
         }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PrimiPorudzbinu_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            
+
+            Sadrzi s = new Sadrzi()
+            {
+                VelicinaId = (VelicinaPizze)comboVelicina.SelectedItem,
+                PizzaId = (Pizza)comboPizza.SelectedItem
+            };
+            sadrzi.Add(s);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btnPrimiPorudzibnu_Click(object sender, EventArgs e)
         {
+            if (listOperater.SelectedItems.Count == 0 || listKupac.SelectedItems.Count == 0 || sadrzi.Count==0|| comboNacinPlacanja.SelectedItem==null)
+            {
+                MessageBox.Show("Morate izbrati jednog operatera,dostavaljaca,nacin placanja i popuniti sadrzaj bar jedne porudzbine");
+                return;
+            }
+            ISession s = DataLayer.GetSession();
+            ITransaction t = s.BeginTransaction();
 
+            Kupac k = s.Load<Kupac>(((Kupac)listKupac.SelectedItem).Id);
+            Operater o = s.Load<Operater>(((Operater)listOperater.SelectedItem).Id);
+            NeisporucenaPorudzbina p = new NeisporucenaPorudzbina()
+            {
+                NacinPlacanja = comboNacinPlacanja.Text,
+                IdKupca = k,
+                IdOperater = o,
+                DatumVremeKreiranja = DateTime.Now
+            };
+            s.Save(p);
+            k.Porudzbine.Add(p);
+            o.PrimljenePorudzbine.Add(p);
+            foreach (var x in sadrzi)
+            {
+                x.PorudzbinaId = p;
+                s.Save(x);
+                p.Sadrzaj.Add(x);
+            }
+            t.Commit();
+            s.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }
