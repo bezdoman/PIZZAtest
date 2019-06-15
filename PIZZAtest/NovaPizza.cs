@@ -60,5 +60,10 @@ namespace PIZZAtest
             DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void NovaPizza_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

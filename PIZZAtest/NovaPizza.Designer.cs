@@ -36,8 +36,8 @@
             this.txtDodatak = new System.Windows.Forms.TextBox();
             this.btnDodatak = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.listBoxDodaci = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +115,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodaci";
             // 
+            // listBoxDodaci
+            // 
+            this.listBoxDodaci.FormattingEnabled = true;
+            this.listBoxDodaci.Location = new System.Drawing.Point(184, 16);
+            this.listBoxDodaci.Name = "listBoxDodaci";
+            this.listBoxDodaci.Size = new System.Drawing.Size(120, 121);
+            this.listBoxDodaci.TabIndex = 15;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -124,14 +132,6 @@
             this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Ime dodatka";
-            // 
-            // listBoxDodaci
-            // 
-            this.listBoxDodaci.FormattingEnabled = true;
-            this.listBoxDodaci.Location = new System.Drawing.Point(184, 16);
-            this.listBoxDodaci.Name = "listBoxDodaci";
-            this.listBoxDodaci.Size = new System.Drawing.Size(120, 121);
-            this.listBoxDodaci.TabIndex = 15;
             // 
             // NovaPizza
             // 
@@ -146,6 +146,7 @@
             this.Controls.Add(this.txtCena);
             this.Name = "NovaPizza";
             this.Text = "NovaPizza";
+            this.Load += new System.EventHandler(this.NovaPizza_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
